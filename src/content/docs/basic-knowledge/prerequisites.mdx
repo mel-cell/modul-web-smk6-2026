@@ -1,0 +1,47 @@
+---
+title: "Technical Prerequisites"
+description: "Core technologies you need to understand."
+sidebar:
+  order: 2
+---
+
+# Technical Prerequisites
+
+To contribute effectively to this project, developers must be proficient in three foundational pillars. Below are the required skill sets and their official documentation for reference.
+
+## 1. Type Safety with TypeScript
+
+We use **TypeScript** to ensure that our data structures are consistent across the entire app. Payload CMS is built with a "code-first" approach, meaning our database schema is generated directly from TypeScript code.
+
+- **Objective:** Understand Types, Interfaces, and Generics.
+- **Resource:** [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+
+## 2. Version Control with Git
+
+Git is our tool for collaboration. We use a structured commit system to keep the project's history clean and traceable.
+
+- **Workflow:** Feature-branching and Pull Requests.
+- **Resource:** [Git Documentation](https://git-scm.com/doc)
+- **Visuals:** [GitHub Skills](https://skills.github.com/)
+
+## 3. Node.js & Package Managers
+
+The project runs on the Node.js runtime. Familiarity with `npm` or `pnpm` is essential for managing dependencies and running local development scripts.
+
+- **Core Commands:** `install`, `run dev`, `run build`.
+- **Resource:** [Node.js Guides](https://nodejs.org/en/docs/guides/)
+
+## 4. Containerization with Docker
+
+This project is fully containerized. Developers do not need to install PostgreSQL or other services locally on their machine; Docker handles the environment orchestration.
+
+- **Objective:** Understand `Dockerfile` and `docker-compose.yml`.
+- **Resource:** [Docker Get Started](https://docs.docker.com/get-started/)
+
+---
+
+### Knowledge Check
+Before proceeding to the architecture section, ensure you can:
+1. Clone the repository.
+2. Run `npm install` and `docker-compose up`.
+3. Understand why a variable is typed as `string` or `number` in the codebase.
