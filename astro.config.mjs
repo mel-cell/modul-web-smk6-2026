@@ -4,6 +4,8 @@ import starlight from '@astrojs/starlight'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://mel-cell.github.io',
+  base: '/modul-web-smk6-2026',
   integrations: [
     starlight({
       title: 'The SMK6 Engine',
