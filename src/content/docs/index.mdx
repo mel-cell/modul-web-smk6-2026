@@ -1,36 +1,41 @@
 ---
-title: "The SMK6 Engine: Guide Overview"
+title: "The SMK6 Engine"
 description: "Panduan lengkap pengembangan dan pengelolaan infrastruktur digital SMK Negeri 6 Malang."
+template: splash
+hero:
+  tagline: Selamat Datang di Pusat Dokumentasi & Modul Pembelajaran Web SMK Negeri 6 Malang.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Mulai Belajar
+      link: /basic-knowledge/
+      icon: right-arrow
+      variant: primary
+    - text: Lihat Project Utama
+      link: https://github.com/mel-cell/SMKNegeri6Malang
+      icon: external
 ---
 
-# Selamat Datang di Modul SMK6 Engine 🚀
+import { Card, CardGrid } from '@astrojs/starlight/components';
 
-Modul ini dirancang khusus untuk mendokumentasikan bagaimana sistem website **SMK Negeri 6 Malang** dibangun, dikelola, dan dikembangkan menggunakan teknologi modern seperti **Payload CMS**, **Next.js**, dan **Docker**.
+## ️ Peta Perjalanan Belajar
 
-## 🎯 Tujuan Modul
-1. **Legacy:** Memastikan siapa pun yang mengelola project ini di masa depan memiliki panduan yang jelas.
-2. **Learning:** Memberikan wawasan teknis bagi siswa (atau pengembang lain) tentang standar industri *Headless CMS*.
-3. **Efficiency:** Mempercepat proses penambahan fitur baru tanpa merusak struktur yang sudah ada.
+<CardGrid stagger>
+	<Card title="Basic Knowledge" icon="pencil">
+		Hal-hal dasar yang harus kamu kuasai: TypeScript, Git, dan Terminal dasar.
+	</Card>
+	<Card title="Payload Architecture" icon="setting">
+		Bedah isi perut CMS: Collections, Globals, dan Database Schema.
+	</Card>
+	<Card title="Development Guide" icon="add-document">
+		Panduan praktis menambah fitur baru dan integrasi ke Next.js.
+	</Card>
+	<Card title="Deployment" icon="rocket">
+		Cara memindahkan kode dari laptop ke server menggunakan Docker.
+	</Card>
+</CardGrid>
 
-## 🗺️ Peta Perjalanan
-
-### [1. Basic Knowledge](./basic-knowledge)
-Hal-hal dasar yang harus kamu kuasai sebelum menyentuh kode project ini.
-- TypeScript Dasar
-- Pemahaman Next.js & React
-- Git & Workflow Kolaborasi
-
-### [2. Payload Architecture](./payload-architecture)
-Bedah isi perut CMS yang kita gunakan.
-- Cara kerja Collections & Globals
-- Hubungan Database (PostgreSQL/MongoDB)
-- Arsitektur Folder Project
-
-### [3. Development Guide](./development-guide)
-Panduan praktis untuk melakukan perubahan atau penambahan fitur.
-- Membuat Field baru di Payload
-- Integrasi ke Frontend Next.js
-- Deployment ke Server (Docker)
+---
 
 ---
 
