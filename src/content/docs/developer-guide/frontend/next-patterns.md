@@ -1,37 +1,55 @@
 ---
-title: Next.js Patterns
-description: Server Components, Client Components, dan Optimization.
+title: Next.js Patterns & SEO
+description: Server Components, Client Components, dan Optimasi Mesin Pencari.
 sidebar:
   order: 3
 ---
 
-Project SMK6 menggunakan **App Router** Next.js yang membagi komponen menjadi dua dunia: **Server** dan **Client**.
+Project SMK6 bukan sekadar cepat, tapi juga harus "terlihat" oleh mesin pencari seperti Google.
 
-## 1. Server Components (Default)
-Hampir semua blok di project ini adalah Server Components.
-*   **Kapan dipakai?** Untuk mengambil data dari database, render HTML statis, dan menjaga keamanan kunci API.
-*   **Kenapa?** Karena jauh lebih cepat karena tidak mengirim kode JavaScript ke browser user.
+## 1. Dynamic Metadata (SEO)
 
-## 2. Client Components (`'use client'`)
-Gunakan instruksi `'use client'` di baris paling atas file hanya jika:
-*   Anda butuh interactivity (`useState`, `useEffect`).
-*   Anda butuh *event listeners* (Klik tombol yang memicu animasi).
-*   Anda menggunakan library animasi seperti Framer Motion atau GSAP.
+Setiap halaman dinamis (Berita, Jurusan) wajib memiliki metadata yang unik. Kita menggunakan fungsi `generateMetadata` milik Next.js.
 
-## 3. Optimasi Gambar
-Selalu gunakan komponen `<Image />` dari `next/image`. 
-*   **Penting**: Pastikan Anda sudah mendaftarkan domain gambar di `next.config.js` (remotePatterns) agar gambar dari CMS bisa muncul.
-
-## 4. Penanganan Error (Circular Safety)
-
-:::caution[Solusi Fatal Error]
-Jika aplikasi macet saat dijalankan di mode Production dengan pesan `ReferenceError`, periksa apakah ada komponen yang mengimpor komponen induknya. 
-
-**Gunakan Dynamic Import:**
 ```tsx
-const ComplexComponent = dynamic(() => 
-  import('./ComplexComponent').then(m => m.ComplexComponent)
+// src/app/(frontend)/[slug]/page.tsx
+export async function generateMetadata({ params }) {
+  const { slug } = params
+  const post = await getNewsBySlug(slug)
+
+  return {
+    title: `${post.title} | SMK Negeri 6 Malang`,
+    description: post.excerpt,
+    openGraph: {
+      images: [post.metaImage.url],
+    },
+  }
+}
+```
+
+## 2. Server vs Client: Strategi Penggunaan
+
+| Kasus Penggunaan | Jenis Komponen | Alasan |
+| :--- | :--- | :--- |
+| **Fetch Data Berita** | Server | Keamanan & Kecepatan. |
+| **Formulir Kontak** | Client | Butuh interaksi user. |
+| **Slider / Carousel** | Client | Butuh library JavaScript browser. |
+| **Render Content** | Server | Ringkas & SEO Friendly. |
+
+## 3. Optimization Teknik
+
+*   **Caching**: Kita menggunakan `fetch` Next.js yang terintegrasi dengan Payload CMS. Gunakan `tags` untuk memudahkan revalidasi spesifik.
+*   **Font Optimization**: Menggunakan `next/font/google` untuk memuat font sekolah (misal: Inter atau Roboto) tanpa memperlambat LCP (Largest Contentful Paint).
+
+## 4. Penanganan Circular Dependency (Deep Fix)
+
+:::danger[Kasus Nyata]
+Jika muncul `ReferenceError: i is not defined` di Production, segera cek `RenderBlocks.tsx`. Pastikan komponen yang bersifat rekursif diimpor secara dinamis:
+
+```tsx
+const RecursiveComponent = dynamic(() => 
+  import('@/blocks/Recursive/Component').then(m => m.RecursiveComponent)
 )
 ```
-Ini akan memutus mata rantai impor yang tak berujung dan menyelamatkan build Production Anda.
+Metode ini memutus rantai impor sirkular yang membingungkan Webpack.
 :::
