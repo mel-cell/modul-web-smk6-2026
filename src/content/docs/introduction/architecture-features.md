@@ -10,8 +10,10 @@ sidebar:
 Sistem ini menggunakan arsitektur **Decoupled (Headless)**. Artinya, kita memisahkan antara bagian yang menyimpan data (Backend/CMS) dan bagian yang menampilkan data (Frontend).
 
 ### Mengapa ini Bagus?
-1.  **Kemudahan Update**: Admin sekolah bisa mengubah berita atau data jurusan di CMS, dan perubahan tersebut akan langsung muncul di berbagai platform (bisa ke Web, Apps, atau bahkan layar Monitor Smart TV di lobi sekolah).
-2.  **Keamanan**: Karena Frontend dan Backend terpisah, risiko serangan siber menjadi lebih kecil karena "pintu masuk" data lebih terjaga.
+1.  **Omnichannel**: Konten yang sama bisa disajikan ke website, aplikasi mobile, atau layar informasi di lobi sekolah tanpa perlu input ulang.
+2.  **Future-Proof**: Kita bisa mengganti teknologi tampilan (misal pindah dari Next.js ke Astro) di masa depan tanpa pernah kehilangan atau harus memigrasi data inti kita.
+3.  **Keamanan**: Panel admin terpisah sepenuhnya dari situs publik, sehingga memperkecil celah serangan siber.
+4.  **Efisiesi Update**: Admin sekolah bisa mengubah berita atau data jurusan di CMS, dan perubahan tersebut akan langsung muncul di berbagai platform.
 
 ## Fitur Unggulan
 

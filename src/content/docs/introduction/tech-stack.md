@@ -13,6 +13,7 @@ Next.js bertindak sebagai wajah atau "etalase" website.
 
 ## 2. Payload CMS (Data Engine)
 Ini adalah "Jantung" dari sistem kita. Payload adalah Headless CMS berbasis Node.js yang sangat fleksibel.
+*   **Filosofi Code-First**: Kita mendesain database bukan melalui klik-klik di UI, melainkan melalui kode TypeScript. Ini memastikan struktur data kita punya versi (version-controlled) dan sangat presisi.
 *   **Keunggulan**: Berbeda dengan CMS lama, Payload memungkinkan kita sebagai developer untuk mendesain struktur data yang unik tanpa batasan, namun tetap memberikan tampilan Admin yang sangat bersih bagi pengelola konten.
 
 ## 3. Docker (Containerization)
