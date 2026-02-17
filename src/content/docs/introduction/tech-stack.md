@@ -1,5 +1,5 @@
 ---
-title: Fondasi Teknologi (Core Stack)
+title: "Fondasi Teknologi (Core Stack)"
 description: Mengenal alat-alat yang digunakan dalam membangun ekosistem digital SMKN 6 Malang.
 sidebar:
   order: 2

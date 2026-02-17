@@ -1,5 +1,5 @@
 ---
-title: Next.js Patterns & SEO
+title: "Next.js Patterns & SEO"
 description: Server Components, Client Components, dan Optimasi Mesin Pencari.
 sidebar:
   order: 3

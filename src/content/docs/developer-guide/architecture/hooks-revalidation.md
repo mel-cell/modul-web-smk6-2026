@@ -1,5 +1,5 @@
 ---
-title: Hooks & Revalidation (Sistem Otomatis)
+title: "Hooks & Revalidation (Sistem Otomatis)"
 description: Memahami siklus hidup data dan sinkronisasi cache.
 sidebar:
   order: 3

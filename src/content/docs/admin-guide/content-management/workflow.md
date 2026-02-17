@@ -1,5 +1,5 @@
 ---
-title: Alur Kerja: Draft vs Publish
+title: "Alur Kerja: Draft vs Publish"
 description: Cara menyimpan dan menayangkan perubahan ke website sekolah.
 sidebar:
   order: 1

@@ -1,5 +1,5 @@
 ---
-title: Collections & Globals (Arsitektur Database)
+title: "Collections & Globals (Arsitektur Database)"
 description: Panduan mendalam membangun skema data, validasi, dan relasi.
 sidebar:
   order: 2

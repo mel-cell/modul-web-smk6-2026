@@ -1,5 +1,5 @@
 ---
-title: Scripts & Data Seeding
+title: "Scripts & Data Seeding"
 description: Mengelola tipe data otomatis dan pengisian data simulasi.
 sidebar:
   order: 1
