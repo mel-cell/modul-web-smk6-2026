@@ -5,6 +5,10 @@ sidebar:
   order: 3
 ---
 
+:::note[Belajar Konsep]
+Informasi lebih lanjut mengenai konsep Headless: [What is a Headless CMS? (by Contentful)](https://www.contentful.com/knowledge-center/what-is-headless-cms/)
+:::
+
 ## Konsep "Headless"
 
 Sistem ini menggunakan arsitektur **Decoupled (Headless)**. Artinya, kita memisahkan antara bagian yang menyimpan data (Backend/CMS) dan bagian yang menampilkan data (Frontend).

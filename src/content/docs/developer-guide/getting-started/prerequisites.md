@@ -48,7 +48,20 @@ git config --global user.name "Nama Lengkap Anda"
 git config --global user.email "email@anda.com"
 ```
 
-## 5. Checklist Sebelum Koding
+## 5. Quick Start: Membuat Project Payload Baru
+
+Jika Anda ingin mencoba membuat sistem seperti SMK6 Engine dari nol, Payload menyediakan perintah yang sangat mudah:
+
+```bash
+npx create-payload-app@latest
+```
+
+*   **Panduan Lengkap**: [Payload Quick Start Guide](https://payloadcms.com/docs/getting-started/installation)
+*   **Video Tutorial**: [Payload YouTube Channel](https://www.youtube.com/@payloadcms)
+
+Setelah menjalankan perintah di atas, Anda akan diajak memilih template dan database. Untuk project SMK6, kita menggunakan database **PostgreSQL**.
+
+## 6. Checklist Sebelum Koding
 
 :::caution[BACA INI]
 Jika Anda baru pertama kali melakukan `git clone` project ini, lakukan urutan ini tanpa terlewat:

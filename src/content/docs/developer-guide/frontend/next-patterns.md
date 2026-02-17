@@ -10,6 +10,8 @@ Project SMK6 bukan sekadar cepat, tapi juga harus "terlihat" oleh mesin pencari 
 ## 1. Dynamic Metadata (SEO)
 
 Setiap halaman dinamis (Berita, Jurusan) wajib memiliki metadata yang unik. Kita menggunakan fungsi `generateMetadata` milik Next.js.
+*   **Referensi**: [Next.js Metadata API](https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
+*   **Belajar Konsep**: [Server vs Client Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
 
 ```tsx
 // src/app/(frontend)/[slug]/page.tsx

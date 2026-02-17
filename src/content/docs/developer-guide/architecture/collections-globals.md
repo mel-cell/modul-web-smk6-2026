@@ -9,7 +9,8 @@ Membangun database di project ini dilakukan secara **declarative**. Artinya, And
 
 ## 1. Field-Field Tingkat Lanjut (Advanced Fields)
 
-Jangan hanya menggunakan teks biasa. Gunakan tipe data yang tepat untuk pengalaman Admin yang lebih baik:
+Jangan hanya menggunakan teks biasa. Gunakan tipe data yang tepat untuk pengalaman Admin yang lebih baik.
+*   **Referensi**: [Payload Fields Documentation](https://payloadcms.com/docs/fields/overview)
 
 ### **Array Fields**
 Gunakan saat satu data punya banyak sub-data (Contoh: "Daftar Keahlian Siswa").

@@ -6,6 +6,7 @@ sidebar:
 ---
 
 Hooks adalah "pemicu" (triggers) yang membuat sistem kita terlihat pintar dan otomatis.
+*   **Referensi**: [Payload Hooks Documentation](https://payloadcms.com/docs/hooks/overview)
 
 ## 1. Alur Kerja (Lifecycle) Data
 
