@@ -19,20 +19,33 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: 'Start Here',
-          items: [{ label: 'Overview', slug: '' }],
+          label: 'Part 1: Introduction',
+          autogenerate: { directory: 'introduction' },
         },
         {
-          label: 'Core Knowledge',
-          autogenerate: { directory: 'basic-knowledge' },
+          label: 'Part 2: Developer Guide',
+          items: [
+            {
+              label: 'Getting Started',
+              autogenerate: { directory: 'developer-guide/getting-started' },
+            },
+            {
+              label: 'Payload CMS Architecture',
+              autogenerate: { directory: 'developer-guide/architecture' },
+            },
+            {
+              label: 'Frontend Development',
+              autogenerate: { directory: 'developer-guide/frontend' },
+            },
+            {
+              label: 'Advanced Maintenance',
+              autogenerate: { directory: 'developer-guide/advanced' },
+            },
+          ],
         },
         {
-          label: 'Architecture',
-          autogenerate: { directory: 'payload-architecture' },
-        },
-        {
-          label: 'Development',
-          autogenerate: { directory: 'development-guide' },
+          label: 'Part 3: Admin Guide',
+          autogenerate: { directory: 'admin-guide' },
         },
       ],
     }),
