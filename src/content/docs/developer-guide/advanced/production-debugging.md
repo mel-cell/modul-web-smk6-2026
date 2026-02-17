@@ -1,45 +1,46 @@
 ---
-title: Production Debugging
-description: Cara menangani error sulit di lingkungan produksi.
+title: Production Debugging (The War Room)
+description: Strategi menghadapi bug misterius di lingkungan Live server.
 sidebar:
   order: 2
 ---
 
-Error di mode Production seringkali sulit dibaca karena kode sudah dikompresi (minified). Misalnya, Anda mungkin melihat error seperti `ReferenceError: i is not defined`.
+Berbeda dengan lokal yang ramah developer, server Production seringkali memberikan pesan error yang singkat dan tidak jelas. Halaman ini adalah panduan "P3K" Anda.
 
-## 1. Membongkar Kode Minified
+## 1. Menghadapi "ReferenceError: i is not defined"
 
-Untuk mengetahui siapa sebenarnya `i` tersebut, Anda bisa mematikan fitur minifikasi sementara di `next.config.js`:
+Ini adalah error yang paling sering muncul di project SMK6 yang dikompilasi dengan Next.js.
+*   **Penyebab**: Hampir 100% karena **Circular Dependency**.
+*   **Analisis**: Webpack mencoba membungkus komponen A, tapi A butuh B, dan B butuh A. Salah satu komponen akhirnya "mati" karena tidak tahu siapa yang harus lahir duluan.
 
-```javascript
-// next.config.js
-webpack: (config, { dev }) => {
-  if (!dev) {
-    config.optimization.minimize = false; // Matikan minifikasi
-  }
-  return config;
-}
+### Langkah Penanganan (Fixing Loop):
+1.  Buka `next.config.js`.
+2.  Set `optimization.minimize = false`.
+3.  Deploy ulang atau `pnpm build && pnpm start`.
+4.  Lihat log: Error bukan lagi `i is not defined`, melainkan nama asli komponen (misal: `SwipeCardsComponent is not defined`).
+5.  Gunakan `next/dynamic` untuk mengimpor komponen tersebut di `RenderBlocks`.
+
+## 2. Memantau Log Docker secara Realtime
+
+Jangan menebak-nebak apa yang terjadi di server. Gunakan perintah ini:
+```bash
+docker logs -f smk6-app --tail 50
 ```
+Pantau setiap request yang masuk. Jika ada error 500, detailnya biasanya akan muncul di sini (misal: Database connection timeout).
 
-Setelah build ulang, error akan menunjukkan nama komponen yang asli (misal: `CustomGridComponent`), memudahkan Anda menemukan lokasi *Circular Dependency*.
+## 3. Investigasi Database (PostgreSQL)
 
-## 2. Mengaktifkan Source Maps
+Jika data di CMS ada tapi di Web tidak muncul:
+1.  Masuk ke terminal kontainer DB: `docker exec -it smk6-db psql -U postgres`.
+2.  Cek apakah tabel benar-benar ada dan berisi data: `SELECT * FROM news LIMIT 5;`.
+3.  Jika data tidak ada, jalankan ulang `pnpm seed`.
 
-Gunakan pengaturan berikut di Node.js (via Dockerfile) untuk mendapatkan stack trace yang lebih detail:
+## 4. Cache & Revalidation Problems
 
-```dockerfile
-# Dockerfile
-CMD ["node", "--enable-source-maps", "server.js"]
-```
+Jika Admin komplain "Saya sudah simpan tapi web tidak berubah":
+*   **Cek Network**: Gunakan Inspect Element -> Network tab. Lihat header `X-Nextjs-Cache`. Jika nilainya `HIT`, artinya user masih melihat cache lama.
+*   **Pemicu Paksa**: Buatlah endpoint rahasia untuk memicu revalidasi total jika sistem otomatis hooks sedang mengalami masalah.
 
-Dan di `next.config.js`:
-```javascript
-productionBrowserSourceMaps: true
-```
-
-## 3. Checklist Perbaikan Cepat (Quick Fix)
-
-Jika website mendadak 500 Error di Production setelah dideploy:
-1.  **Cek Logs**: Gunakan `docker compose logs --tail 100`.
-2.  **Cek Circular**: Cari import sirkular di `RenderBlocks` atau Hooks.
-3.  **Cek .env**: Pastikan `PAYLOAD_SECRET` dan `DATABASE_URI` di server sudah benar.
+:::tip[Penting]
+Gunakan tool monitoring seperti **Sentry** atau **Logtail** jika project ini mulai diakses oleh puluhan ribu user agar Anda mendapatkan notifikasi email saat server sedang error.
+:::

@@ -1,43 +1,60 @@
 ---
-title: Prasyarat Sistem
-description: Daftar perangkat lunak yang wajib diinstal sebelum memulai pengembangan.
+title: Prasyarat & Persiapan Awal
+description: Panduan teknis mendalam mengenai instalasi lingkungan pengembangan.
 sidebar:
-  order: 1
+  order: 2
 ---
 
-Sebelum Anda bisa menjalankan project SMK Negeri 6 Malang, pastikan komputer Anda sudah memiliki spesifikasi dan perangkat lunak berikut.
+Bagian ini bukan sekadar daftar software, tapi langkah-langkah teknis untuk memastikan lingkungan koding Anda sehat.
 
-## 1. Perangkat Lunak Wajib
+## 1. Detail Node.js & Tooling
 
-| Software | Versi Minimal | Kegunaan |
-| :--- | :--- | :--- |
-| **Node.js** | 20.x (LTS) | Runtime utama untuk Next.js dan Payload CMS. |
-| **pnpm** | 8.x atau 9.x | Package manager (Wajib pakai pnpm, jangan npm/yarn). |
-| **Docker Engine** | Terbaru | Menjalankan database dan environment aplikasi. |
-| **Git** | Terbaru | Manajemen versi kode. |
+Kita menggunakan **Node.js 20.x (LTS - Iron)**. Mengapa? Karena versi ini memiliki stabilitas terbaik untuk library yang kita gunakan.
 
-## 2. Mengapa Harus PNPM?
-
-Project ini menggunakan **pnpm** karena jauh lebih cepat dalam instalasi modul dan jauh lebih hemat ruang penyimpanan dibandingkan npm biasa.
-
-:::danger[Peringatan Kritis]
-Jangan pernah menghapus file `pnpm-lock.yaml`. File ini adalah kunci agar semua developer menggunakan versi library yang sama persis. Jika file ini berantakan, build aplikasi di Production bisa gagal.
-:::
-
-## 3. Instalasi Cepat
-
-Jika Anda menggunakan Linux/macOS, Anda bisa menginstal pnpm melalui Corepack:
-
+### Cek Versi:
 ```bash
-corepack enable
-corepack prepare pnpm@latest --activate
+node -v
+# Output harus v20.x.x
+```
+Jika versi Anda berbeda, sangat disarankan menggunakan **NVM (Node Version Manager)**:
+```bash
+nvm install 20
+nvm use 20
 ```
 
-Untuk pengguna Windows, silakan unduh installer di [pnpm.io](https://pnpm.io/installation).
+## 2. Mengapa PNPM adalah Harga Mati?
 
-## 4. Extension VS Code (Sangat Direkomendasikan)
-Agar koding lebih nyaman, instal extension berikut:
-*   **ESLint**: Menjaga standar kode.
-*   **Prettier**: Merapikan format kode secara otomatis.
-*   **Tailwind CSS IntelliSense**: Membantu penulisan utility class Tailwind.
-*   **Console Ninja**: Memudahkan debugging log di terminal.
+Berbeda dengan npm yang mengunduh ribuan file redundan untuk setiap project, pnpm menggunakan *content-addressable storage*. 
+
+### Manfaat nyata bagi project SMK6:
+*   **Kecepatan Build**: Menghemat waktu hingga 50% saat `pnpm build`.
+*   **Integritas Lockfile**: Menjamin bahwa library `payload` versi 3.0.0 tidak akan mendadak update ke versi yang merusak tanpa persetujuan kita.
+
+## 3. Docker & Docker Desktop
+
+Pastikan Docker Engine Anda memiliki alokasi RAM minimal **4GB**. PostgreSQL dan Node.js yang berjalan bersamaan cukup memakan memori.
+
+### Pengecekan Docker:
+```bash
+docker compose version
+# Pastikan v2.x.x ke atas
+```
+
+## 4. Konfigurasi Git Global
+
+Pastikan Anda mengatur identitas Git Anda agar kontribusi Anda tercatat dengan benar:
+```bash
+git config --global user.name "Nama Lengkap Anda"
+git config --global user.email "email@anda.com"
+```
+
+## 5. Checklist Sebelum Koding
+
+:::caution[BACA INI]
+Jika Anda baru pertama kali melakukan `git clone` project ini, lakukan urutan ini tanpa terlewat:
+1. `pnpm install`
+2. Buat file `.env`
+3. `docker compose up -d`
+4. `pnpm generate:types`
+5. `pnpm seed` (Hanya jika butuh data demo)
+:::

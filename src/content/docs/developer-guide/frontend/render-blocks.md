@@ -1,46 +1,45 @@
 ---
-title: The RenderBlocks Engine
-description: Memahami jembatan antara Payload CMS dan UI Component.
+title: The RenderBlocks Engine (Mapping Guide)
+description: Bedah mendalam alur data dari JSON Payload ke React Component.
 sidebar:
   order: 1
 ---
 
-`RenderBlocks.tsx` adalah file paling krusial di sisi Frontend. File ini bertindak sebagai "Traffic Controller" yang menentukan komponen mana yang harus muncul berdasarkan data dari CMS.
+`RenderBlocks.tsx` bukan sekadar penampil komponen, melainkan **Data Transformer**.
 
-## 1. Bagaimana Cara Kerjanya?
+## 1. Alur Data (The Data Journey)
 
-Saat Anda menarik data halaman dari API Payload, Anda akan mendapatkan array objek bernama `layout`. Setiap objek punya `blockType`.
+Bayangkan Anda memiliki halaman "Beranda". Di CMS, Anda memasukkan blok "Card Grid".
+1.  **Request**: Next.js memanggil API Payload: `/api/pages?where[slug][equals]=home`.
+2.  **Response**: Payload membalas dengan array JSON berisi properti blok (misal: `cards: [{ title: '...', icon: '...' }]`).
+3.  **Mapping**: `RenderBlocks` menerima array ini dan mencari komponen yang cocok di objek `blockComponents`.
+4.  **Rendering**: Komponen `CardGridBlockComponent` dipanggil, dan semua data JSON tadi dilempar sebagai `props`.
 
-`RenderBlocks` akan melakukan looping pada array tersebut:
-*   Jika `blockType` adalah `content`, maka panggil `ContentBlock.tsx`.
-*   Jika `blockType` adalah `mediaBlock`, maka panggil `MediaBlock.tsx`.
+## 2. Kenapa Kita Menggunakan Objek Mapping?
 
-## 2. Struktur Kode Utama
+Daripada menggunakan `switch-case` yang panjang, kita menggunakan objek mapping untuk kecepatan:
 
 ```tsx
 const blockComponents = {
   content: ContentBlock,
-  mediaBlock: MediaBlock,
-  // ... daftar semua blok lainnya
-}
-
-export const RenderBlocks: React.FC<Props> = ({ blocks }) => {
-  return (
-    <Fragment>
-      {blocks.map((block, index) => {
-        const Block = blockComponents[block.blockType]
-        if (Block) return <Block key={index} {...block} />
-        return null
-      })}
-    </Fragment>
-  )
+  cardGrid: CardGridBlockComponent,
+  //...
 }
 ```
+Metode ini memungkinkan kita menambahkan ribuan blok tanpa memperlambat performa rendering.
 
-## 3. Dinamis vs Statis
+## 3. Penanganan Prop Khusus
 
-Beberapa blok besar seperti `CustomGrid` atau `Layout` dimuat secara dinamis menggunakan `next/dynamic`.
+Terkadang sebuah blok butuh data tambahan yang tidak ada di CMS, misalnya `customData` untuk halaman dinamis.
+`RenderBlocks` mendukung penerusan props tambahan ini secara otomatis (`...block`).
 
-:::tip[Penting]
-Pemuatan dinamis ini memastikan bahwa komponen berat hanya diunduh oleh browser saat dibutuhkan, dan juga mencegah tabrakan inisialisasi modul (Circular Dependency).
+## 4. Keuntungan Modularitas
+
+Dengan sistem ini:
+*   Komponen UI bisa dites secara terisolasi (Unit Testing).
+*   Satu komponen bisa dipakai di banyak halaman dengan konfigurasi berbeda.
+*   Pemisahan tanggung jawab: Developer UI fokus di `Component.tsx`, Developer Data fokus di `config.ts`.
+
+:::warning[Hati-hati dengan Prop Drilling]
+Jangan mengirimkan `props` terlalu dalam ke anak komponen di dalam blok. Jika butuh data global, pertimbangkan menggunakan React Context atau ambil langsung di tingkat komponen server.
 :::

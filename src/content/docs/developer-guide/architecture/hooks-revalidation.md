@@ -1,34 +1,36 @@
 ---
-title: Hooks & Revalidation
-description: Bagaimana data berubah secara otomatis dan terupdate di website.
+title: Hooks & Revalidation (Sistem Otomatis)
+description: Memahami siklus hidup data dan sinkronisasi cache.
 sidebar:
-  order: 2
+  order: 3
 ---
 
-**Hooks** adalah fungsi otomatis yang berjalan saat terjadi aksi tertentu pada data (seperti Simpan, Hapus, atau Baca).
+Hooks adalah "pemicu" (triggers) yang membuat sistem kita terlihat pintar dan otomatis.
 
-## 1. Jenis Hooks yang Sering Digunakan
+## 1. Alur Kerja (Lifecycle) Data
 
-*   **`beforeChange`**: Digunakan untuk memanipulasi data *sebelum* disimpan ke database (misal: otomatis membuat slug dari judul).
-*   **`afterChange`**: Digunakan untuk aksi *setelah* data berhasil disimpan. Kita paling banyak menggunakannya untuk **Revalidation**.
+Developer harus paham urutan eksekusi berikut saat data disimpan:
+1.  **`beforeValidate`**: Bersihkan data (hapus spasi berlebih, format huruf besar).
+2.  **`beforeChange`**: Manipulasi logika (hitung nilai rata-rata, buat password hash).
+3.  **`afterChange`**: Efek samping (Kirim email notifikasi, hapus cache website).
 
-## 2. Sistem Revalidation (Next.js Cache)
+## 2. Implementasi Revalidation mendalam
 
-Karena website kita sangat cepat, Next.js menyimpan "foto" (cache) dari halaman web. Masalahnya, saat Admin mengubah berita di CMS, website tidak akan berubah jika cache-nya tidak dihapus.
+Kita menggunakan sistem **On-Demand Revalidation**. Website tidak akan di-update setiap menit, TAPI hanya saat admin menekan tombol "Save" di CMS.
 
-Di situlah gunanya Hook `revalidatePost`:
+### Contoh Kasus di SMK6:
+Saat berita berjudul "Lomba Voli" diubah:
+1.  Hook `afterChange` menangkap aksi tersebut.
+2.  Menjalankan fungsi `revalidatePath('/berita/lomba-voli')`.
+3.  Menjalankan fungsi `revalidateTag('news-list')`.
+4.  User yang mengakses detik berikutnya akan melihat versi terbaru, sedangkan user lama tetap melihat cache lama (Hemat bandwidth!).
 
-```typescript
-// Contoh logika sederhana
-export const revalidatePost = ({ doc }) => {
-  revalidatePath(`/berita/${doc.slug}`)
-  return doc
-}
-```
+## 3. Populate Hooks (Manajemen Relasi)
 
-:::caution[Catatan Kritis]
-Pastikan fungsi revalidate selalu dibungkus dalam blok `try...catch` agar jika terjadi error saat membersihkan cache, CMS tidak ikut macet (data tetap tersimpan di database).
+Terkadang kita tidak ingin menyimpan seluruh objek data di database (berat). Kita hanya simpan ID-nya saja.
+Saat data dibaca (`afterRead`), kita gunakan hook untuk "menarik" data aslinya.
+*   **Contoh**: Di koleksi Berita kita hanya simpan `author: "ID_USER"`. Saat dibaca, hook `populateAuthors` akan mengubahnya jadi `{ name: "Pak Jono", role: "Editor" }`.
+
+:::danger[Hati-Hati dengan Loop]
+Jangan pernah memanggil fungsi `update` koleksi A di dalam hook `afterChange` koleksi A sendiri tanpa pengecekan. Hasilnya? **Infinite Loop** yang akan membuat RAM server Anda meledak dalam hitungan detik.
 :::
-
-## 3. Otomatisasi Relasi
-Kita juga menggunakan hooks untuk menghapus data terkait. Misalnya, saat data **Siswa** dihapus, kita punya hook untuk otomatis menghapus akun **User** yang terhubung dengannya agar tidak ada "sampah" data di database.
