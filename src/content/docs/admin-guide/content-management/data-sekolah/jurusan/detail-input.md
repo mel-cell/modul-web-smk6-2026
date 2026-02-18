@@ -1,35 +1,57 @@
 ---
-title: "Detail Isian Jurusan"
-description: Penjelasan mendalam mengenai kolom-kolom pada profil jurusan.
+title: "Master Guide: Kurikulum & Data Jurusan"
+description: Panduan definitif untuk pemeliharaan data kompetensi keahlian, fasilitas praktik, dan sinkronisasi struktur akademik di website.
 sidebar:
   order: 2
 ---
 
-Berikut adalah rincian kolom yang harus diisi untuk membuat profil jurusan yang lengkap:
+Halaman ini berfungsi sebagai acuan bagi Kepala Program Keahlian (Kaprogli) dalam menyusun representasi digital dari jurusan masing-masing. Data yang akurat sangat krusial sebagai media informasi calon siswa baru dan publikasi kemitraan industri.
 
-### 1. Nama & Singkatan
-*   **Nama**: Nama lengkap jurusan (Contoh: Teknik Komputer dan Jaringan).
-*   **Slug**: Link URL otomatis.
+## 1. Navigasi & Hirarki Data
 
-### 2. Tab: Profil Utama
-:::tip[Area Gambar: Tab Profil]
+Data Jurusan dikelola dalam kelompok **Data Sekolah**. Penataan ini memastikan integrasi data antara kurikulum, fasilitas, dan tenaga pengajar tetap sinkron.
+
+*   **Akses**: Sidebar Kiri > Group **"Data Sekolah"** > Collection **"Jurusan"**.
+*   **Identitas**: Setiap jurusan diidentifikasi melalui **Slug** yang unik untuk membentuk URL seperti `/jurusan/teknik-komputer-jaringan`.
+
+## 2. Bedah Tab Konfigurasi (Field-by-Field Breakdown)
+
+Formulir Jurusan dibagi menjadi beberapa Tab untuk memudahkan manajemen data yang kompleks.
+
+### **A. Tab: Informasi Umum (Core Info)**
+:::tip[Visual Tab Profil]
 ![Screenshot Tab Profil Jurusan](../../../../../../assets/admin-guide/content-management/informasi_umum_jurusan.png)
 :::
-*   **Visi & Misi**: Fokus pada kompetensi yang ingin dicapai siswa.
-*   **Sejarah Singkat**: Kapan jurusan ini berdiri.
-*   **Logo Jurusan**: Gunakan file transparan (.png) agar terlihat profesional.
 
-### 3. Tab: Akademik & Fasilitas
-:::tip[Area Gambar: Layout Jurusan]
+*   **Nama Jurusan**: Nama resmi sesuai SK pendirian.
+*   **Visi & Misi Jurusan**: Harus bersifat spesifik. Misi jurusan harus mendukung visi besar sekolah.
+*   **Deskripsi Panjang**: Penjelasan naratif mengenai apa yang dipelajari siswa di jurusan ini. Muncul di bagian atas halaman profil jurusan.
+*   **Logo/Icon**: Gunakan format `.svg` atau `.png` transparan untuk tampilan yang bersih pada list navigasi.
+
+### **B. Tab: Akademik & Kompetensi**
+*   **Mata Pelajaran (Array)**: Masukkan daftar mata pelajaran produktif (kejuruan). Ini memberikan gambaran bagi calon siswa mengenai materi teknis yang akan mereka pelajari.
+*   **Capaian Pembelajaran**: Deskripsikan keahlian apa yang akan dikuasai siswa setelah lulus (Output lulusan).
+
+### **C. Tab: Fasilitas & Bengkel**
+:::tip[Visual Layout]
 ![Screenshot Tab Layout Jurusan](../../../../../../assets/admin-guide/content-management/layout_jurusan.png)
 :::
-*   **Daftar Mata Pelajaran**: Apa saja yang dipelajari siswa?
-*   **Fasilitas Unggulan**: Sebutkan alat-alat canggih yang dimiliki (Misal: Mesin CNC, Lab iMac, dll).
 
-### 4. Galeri Foto
-*   **Isian**: Unggah foto-foto aksi siswa saat praktik kerja lapangan (PKL) atau prakerin. 
-*   **Kualitas**: Gunakan foto dengan pencahayaan terang agar fasilitas sekolah terlihat mewah.
+*   **Gallery Fasilitas (Blocks)**: Gunakan komponen *Media Grid* untuk menampilkan foto-foto Laboratorium, Bengkel, atau Studio. 
+*   **Spesifikasi Alat**: Anda bisa menambahkan daftar alat-alat canggih yang dimiliki untuk meningkatkan nilai tawar jurusan.
 
-:::danger[Relasi Guru]
-Di bagian **Kepala Jurusan**, pilih nama guru yang sudah terdaftar di sistem. Jika nama guru belum ada, silakan hubungi Admin Utama untuk menambahkannya terlebih dahulu.
+## 3. Integrasi Relasi (Hubungan Antar Data)
+
+Salah satu kelebihan sistem kita adalah keterhubungan data (Data Linkage).
+
+1.  **Kepala Jurusan (Relation)**: Pilih nama guru dari koleksi `Siswa/Guru`. Sistem akan menarik foto dan bio guru tersebut secara otomatis untuk ditampilkan sebagai "Kaprogli".
+2.  **Mitra Industri (Relation)**: Hubungkan perusahaan yang sering menjadi tempat PKL/Prakerin untuk jurusan ini. Logo perusahaan akan muncul di section "Mitra Industri Kami" pada halaman jurusan.
+
+## 4. Validasi & Standar Publikasi
+
+*   **Kualitas Visual**: Foto fasilitas **HARUS** dalam keadaan rapi dan bersih. Hindari foto yang terlalu gelap atau goyang.
+*   **Update Berkala**: Informasikan jika ada kerjasama industri baru agar halaman jurusan tetap terlihat aktif dan profesional.
+
+:::danger[Sinkronisasi Kelas]
+Jika Anda mengubah nama jurusan, pastikan untuk memeriksa koleksi **Kelas**. Nama jurusan yang berubah mungkin perlu disesuaikan kembali pada data kelas agar laporan absensi atau data siswa tidak mengalami disorientasi data.
 :::

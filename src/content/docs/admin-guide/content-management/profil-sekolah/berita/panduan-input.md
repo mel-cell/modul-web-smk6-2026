@@ -1,46 +1,67 @@
 ---
-title: "Panduan Pengisian Kolom Berita"
-description: Penjelasan mendalam mengenai setiap kolom input di dalam menu Berita.
+title: "Master Guide: Manajemen Konten Berita"
+description: Dokumentasi definitif untuk pengelolaan informasi, pengunggahan media, dan optimasi SEO pada modul Berita SMKN 6 Malang.
 sidebar:
   order: 2
 ---
 
-Saat Anda menekan tombol **Create New** pada Berita, Anda akan melihat formulir dengan banyak isian. Berikut adalah panduannya:
+Halaman ini adalah standar operasional prosedur (SOP) bagi tim Humas SMKN 6 Malang dalam mengelola arus informasi digital. Pastikan setiap langkah diikuti untuk menjaga kualitas data dan performa website.
 
-:::tip[Area Gambar: Formulir Atas]
-![Screenshot Bagian Atas Form Berita](https://via.placeholder.com/1200x400?text=Screenshot+Formulir+Judul+dan+Hero)
+## 1. Arsitektur Akses & Navigasi
+
+Sebelum melakukan penginputan, admin harus memahami struktur navigasi pada CMS Payload:
+
+1.  **Otentikasi**: Pastikan Anda login dengan akun yang memiliki role `Editor` atau `Admin`.
+2.  **Entry Point**: Sidebar Kiri > Group **"Profil Sekolah"** > Collection **"Berita"**.
+3.  **Action**: Klik tombol **"Create New"**. Sistem akan membuka formulir kosong dengan ID unik yang tersimpan sementara sebagai draf.
+
+:::tip[Navigasi Visual]
+![Dashboard Utama](../../../../assets/admin-guide/introduction/dashboard-utama.png)
+*Gunakan Sidebar sebagai kontrol navigasi utama Anda.*
 :::
 
-### 1. Judul Berita (Title)
-*   **Apa yang harus diisi?** Kalimat utama berita yang singkat dan padat.
-*   **Tips**: Gunakan maksimal 10-12 kata agar tidak terpotong saat dibagikan ke Media Sosial.
+## 2. Bedah Teknis Kolom Input (Field Analysis)
 
-### 2. Gambar Utama (Hero Image)
-*   **Apa yang harus diisi?** Foto utama berita (Media).
-*   **Ketentuan**: Format `.jpg` atau `.webp` dengan rasio Landscape (melebar). Pastikan ukuran file di bawah 500KB agar web tidak berat.
+Setiap kolom (field) di bawah ini memiliki dampak langsung pada tampilan *Frontend* dan indeks pencarian *Google (SEO)*.
 
-:::tip[Area Gambar: Editor Text]
-![Screenshot Editor Lexical/RichText](https://via.placeholder.com/1200x500?text=Screenshot+Isi+Berita+Rich+Text)
+### **A. Judul Berita (Title)**
+*   **Tipe Data**: String/Teks Pendek.
+*   **Ketentuan**: Maksimal 70 karakter untuk optimasi *Google Search Result*.
+*   **Strategi**: Gunakan formula *Click-worthy* namun tetap informatif. Contoh: *"Siswa TKJ SMKN 6 Malang Borong Juara LKS Tingkat Nasional 2026"*.
+
+### **B. Slug (Identitas URL)**
+*   **Fungsi**: Penentu link permanen (Permalink).
+*   **Teknis**: Tergenerasi otomatis dari Judul. Gunakan tanda hubung `-` sebagai pemisah (Kebab-case).
+*   **Larangan**: Jangan pernah mengubah Slug setelah berita di-publish dan dibagikan ke media sosial, karena akan menyebabkan link rusak (Error 404).
+
+### **C. Hero Image (Gambar Utama)**
+*   **Resolusi Ideal**: 1200 x 675 pixel (Rasio 16:9).
+*   **Ukuran File**: Maksimal 500 KB. Gunakan format `.webp` untuk kecepatan akses optimal.
+*   **Alt Text**: **WAJIB DIISI**. Deskripsikan isi gambar untuk aksesibilitas netra dan SEO Gambar. Contoh: *"Penyerahan piala juara 1 LKS Nasional kepada siswa SMKN 6 Malang"*.
+
+### **D. Editor Lexical (Rich Text)**
+Ini adalah mesin pengolah kata utama Anda.
+1.  **Struktur Tulisan**: Gunakan Heading 2 (`H2`) untuk membagi sub-topik. Jangan gunakan `H1` di dalam editor karena `H1` sudah otomatis digunakan oleh Judul.
+2.  **Media Embedding**: Anda bisa memasukkan gambar tambahan (Media) atau link internal/eksternal di sela-sela paragraf.
+3.  **Auto-Save**: Sistem melakukan penyimpanan setiap 30 detik secara otomatis ke database lokal.
+
+### **E. Relasi Kategori & Penulis**
+*   **Kategori (Relation)**: Menghubungkan berita ke koleksi "Kategori". Berita tanpa kategori tidak akan muncul di filter halaman index berita.
+*   **Penulis (Relation)**: Menghubungkan ke koleksi "Pengguna". Ini akan menampilkan profil penulis di akhir artikel untuk meningkatkan kredibilitas tulisan.
+
+## 3. Manajemen Status & Validasi Data
+
+Sebelum menekan tombol akhir, perhatikan status draf Anda:
+
+1.  **State Management**:
+    *   **Draft**: Data tersimpan di database, tetapi API tidak akan mengirimkan data ini ke sistem Next.js (Frontend).
+    *   **Published**: Data langsung dikirim ke `Global Cache` dan memicu fungsi `Revalidation` pada Next.js agar berita muncul dalam milidetik di website.
+2.  **Validasi**: Sistem akan menolak penyimpanan jika kolom bertanda bintang merah (`*`) kosong.
+
+:::warning[Peringatan Publish]
+Sistem menggunakan **On-Demand Revalidation**. Begitu Anda menekan **Publish**, konten di website publik akan berubah secara permanen. Pastikan tidak ada kesalahan ejaan pada nama pejabat sekolah atau nama instansi industri.
 :::
 
-### 3. Isi Berita (Content)
-*   **Apa yang harus diisi?** Seluruh narasi berita.
-*   **Bagian yang harus ada**: 
-    *   **Leading Paragraph**: Ringkasan singkat di awal.
-    *   **Body**: Detail informasi.
-    *   **Format**: Gunakan "Heading 2" untuk sub-judul dalam berita agar rapi.
-
-### 4. Kategori (Categories)
-*   **Apa yang harus diisi?** Pilih satu atau lebih kategori yang relevan.
-*   **Penting**: Kategori menentukan di mana berita ini muncul (Misal: Kategori "Humas" akan memunculkan berita di section Humas pada Home).
-
-### 5. Penulis (Authors)
-*   **Apa yang harus diisi?** Pilih nama guru atau staf yang menulis berita ini. Nama yang terpilih akan muncul sebagai "By: Nama" di website.
-
-### 6. Slug (Link Otomatis)
-*   **Apa fungsinya?** Ini adalah alamat unik berita Anda.
-*   **Penting**: Biasanya terisi otomatis dari Judul. Pastikan tidak ada spasi (ganti dengan `-`) dan jangan diubah setelah berita disebar ke media sosial agar link tidak mati.
-
-:::danger[Catatan Penting]
-Jangan lupa untuk selalu memeriksa **Slug**. Judul boleh diubah kapan saja, tapi jika Anda mengubah Slug setelah dipublikasikan, maka link yang lama akan Error 404.
-:::
+## 4. Troubleshooting Umum
+*   **Gambar Tidak Muncul**: Cek folder Media, pastikan file tidak terhapus di S3/Storage.
+*   **Slug Bentrok**: Jika ada judul yang sama persis, sistem akan menambahkan angka di belakang slug secara otomatis (misal: `berita-hari-ini-1`).
