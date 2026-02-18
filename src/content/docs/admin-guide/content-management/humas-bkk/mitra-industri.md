@@ -11,7 +11,8 @@ Halaman ini berisi daftar perusahaan yang sudah bekerjasama dengan sekolah untuk
 Buka Sidebar kiri > **Data Mitra Industri**.
 
 :::tip[Area Gambar: List Mitra]
-![Daftar Perusahaan Rekanan](https://via.placeholder.com/1200x400?text=Screenshot+Daftar+Mitra+Industri)
+![Daftar Perusahaan Rekanan](../../../../../assets/admin-guide/content-management/list_kategori.png)
+*Ini adalah contoh tampilan daftar mitra industri.*
 :::
 
 ## 2. Detail Input Perusahaan (Field Guide)

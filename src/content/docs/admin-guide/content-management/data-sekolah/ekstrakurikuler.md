@@ -27,7 +27,8 @@ Buka Sidebar kiri > **Data Sekolah** > **Ekstrakurikuler**.
 
 ### **C. Galeri & Dokumentasi**
 :::tip[Area Gambar: Galeri Ekskul]
-![Input Galeri Foto Ekskul](https://via.placeholder.com/1200x600?text=Screenshot+Galeri+Kegiatan+Ekskul)
+![Input Galeri Foto Ekskul](../../../../../assets/admin-guide/content-management/layout_jurusan.png)
+*Anda bisa menambahkan banyak foto kegiatan di bagian galeri ini.*
 :::
 *   Pastikan ada minimal 3 foto kegiatan yang seru (sedang latihan atau saat tampil).
 

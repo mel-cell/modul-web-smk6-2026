@@ -8,7 +8,8 @@ sidebar:
 BKK (Bursa Kerja Khusus) adalah pintu gerbang karir bagi alumni. Di sini Anda mengelola informasi lowongan dari mitra industri.
 
 :::tip[Area Gambar: List Loker]
-![Dashboard Bursa Kerja](https://via.placeholder.com/1200x500?text=Screenshot+Daftar+Lowongan+Kerja)
+![Dashboard Bursa Kerja](../../../../../../assets/admin-guide/content-management/list_pesan.png)
+*Ini adalah contoh tampilan daftar lowongan kerja.*
 :::
 
 ## Langkah Publikasi Loker

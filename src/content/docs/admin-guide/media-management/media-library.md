@@ -12,8 +12,8 @@ Semua file yang muncul di website (Foto Berita, Logo Jurusan, PDF Pengumuman) ha
 Klik menu **Media** pada bagian atas Sidebar. Anda akan melihat semua file yang pernah diunggah ke website.
 
 :::tip[Area Gambar: Gallery Media]
-![Tampilan Pustaka Media](https://via.placeholder.com/1200x600?text=Screenshot+Pustaka+Media)
-*Tunjukkan daftar gambar dalam bentuk Kotak (Grid View).*
+![Tampilan Pustaka Media](../../../assets/admin-guide/introduction/dashboard-utama.png)
+*Tampilan daftar gambar di mana Anda bisa mengelola semua aset visual sekolah.*
 :::
 
 ## 2. Cara Unggah (Upload)

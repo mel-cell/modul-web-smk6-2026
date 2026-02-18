@@ -13,6 +13,6 @@ Halaman ini adalah pusat informasi mengenai bagaimana berita dan pengumuman dike
 3. Mengatur jadwal terbit berita.
 
 :::tip[Area Gambar: List Berita]
-![Halaman Daftar Berita](https://via.placeholder.com/1200x500?text=Screenshot+Daftar+Koleksi+Berita)
-*Tunjukkan daftar berita yang sudah ada untuk memberikan gambaran menu utama.*
+![Halaman Daftar Berita](../../../../../assets/admin-guide/content-management/list_halaman.png)
+*Ini adalah gambaran menu utama berita di mana Anda bisa melihat semua artikel yang sudah dibuat.*
 :::

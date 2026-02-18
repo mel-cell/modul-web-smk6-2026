@@ -12,8 +12,8 @@ Agar Anda tidak bingung saat bekerja, mari kita pahami dua istilah utama yang se
 Bayangkan Koleksi seperti sebuah **Lemari Arsip**. Di dalam satu lemari (misal: lemari "Berita"), Anda bisa menyimpan ratusan dokumen berita yang berbeda-beda.
 
 :::tip[Area Gambar: Contoh List Koleksi]
-![Screenshot Daftar Berita](https://via.placeholder.com/1200x500?text=Upload+Screenshot+List+Koleksi+Berita)
-*Gunakan gambar yang menampilkan daftar (List View) banyak data.*
+![Screenshot Daftar Kategori](../../../assets/admin-guide/content-management/list_kategori.png)
+*Ini adalah contoh tampilan "Koleksi" yang menampung banyak data.*
 :::
 
 *   **Contoh Koleksi:** Siswa, Berita, Jurusan, Alumni.
@@ -24,8 +24,7 @@ Bayangkan Koleksi seperti sebuah **Lemari Arsip**. Di dalam satu lemari (misal: 
 Bayangkan Global seperti sebuah **Remote TV**. Hanya ada satu remote untuk mengontrol satu TV. Global digunakan untuk bagian website yang hanya ada satu pengaturannya.
 
 :::tip[Area Gambar: Contoh Tampilan Global]
-![Screenshot Pengaturan Footer](https://via.placeholder.com/1200x500?text=Upload+Screenshot+Global+Footer)
-*Gunakan gambar yang menampilkan form edit data Global (seperti Footer).*
+![Screenshot Pengaturan Footer](../../../assets/admin-guide/content-management/footer.png)
 :::
 
 *   **Contoh Global:** Header (Menu Atas), Footer (Kaki Web), Setelan Website.
