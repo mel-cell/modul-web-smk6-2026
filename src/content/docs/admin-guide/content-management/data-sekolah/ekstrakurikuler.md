@@ -11,7 +11,7 @@ Ekstrakurikuler adalah wadah bakat siswa. Informasi yang menarik akan meningkatk
 Buka Sidebar kiri > **Data Sekolah** > **Ekstrakurikuler**.
 
 :::tip[Area Gambar: List Ekskul]
-![Daftar Ekskul](https://via.placeholder.com/1200x400?text=Screenshot+Daftar+Ekstrakurikuler)
+![Daftar Ekskul](../../../../../assets/admin-guide/content-management/list_ekskul.png)
 :::
 
 ## 2. Bedah Kolom Input (Field Guide)

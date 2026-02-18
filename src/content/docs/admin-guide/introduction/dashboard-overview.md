@@ -7,9 +7,14 @@ sidebar:
 
 Selamat datang di panel kendali SMK Negeri 6 Malang. Halaman ini akan memandu Anda mengenal "peta" kerja di website ini.
 
+:::tip[Area Gambar: Halaman Login]
+![Halaman Login Admin](../../../../assets/admin-guide/introduction/loginpage.png)
+*Masukkan email dan password yang telah diberikan oleh tim IT.*
+:::
+
 :::tip[Area Gambar: Dashboard Utama]
-![Screenshot Dashboard Utama Payload](https://via.placeholder.com/1200x600?text=Upload+Screenshot+Dashboard+Utama+Disini)
-*Gunakan gambar yang menampilkan Sidebar kiri dan area Cards di tengah.*
+![Screenshot Dashboard Utama Payload](../../../../assets/admin-guide/introduction/dashboard-utama.png)
+*Tampilan setelah berhasil masuk ke sistem.*
 :::
 
 ## 1. Navigasi Sidebar (Sisi Kiri)
@@ -37,6 +42,14 @@ Di sini Anda bisa:
 Selalu pastikan Anda keluar (Log Out) jika sedang menggunakan komputer di tempat umum atau laboratorium sekolah agar data sekolah tidak disalahgunakan.
 :::
 
-## 4. Pencarian Navigator (Ctrl + K)
+## 5. Tips & Trik Navigasi Cepat
 
-Anda bisa mencari menu apapun dengan menekan tombol pencari di bagian atas. Cukup ketik "Siswa" atau "Berita" untuk berpindah halaman dengan cepat.
+Agar pekerjaan Anda lebih efisien, gunakan pintasan berikut:
+
+*   **Pencarian Cepat (`Ctrl + K`)**: Langsung ketik nama koleksi (misal: "Berita") untuk berpindah tanpa harus mencari di sidebar.
+*   **Tombol `+` Instan**: Arahkan kursor ke nama menu di sidebar, lalu klik ikon plus yang muncul untuk langsung membuat data baru.
+*   **Mode Gelap/Terang**: Klik ikon matahari/bulan di pojok kanan atas untuk menyesuaikan kenyamanan mata Anda saat bekerja.
+
+:::note[Catatan Sistem]
+Sistem ini menggunakan teknologi **Auto-Save** untuk draf, namun sangat disarankan untuk tetap menekan tombol **Save Draft** secara manual setiap kali Anda selesai menulis satu paragraf panjang.
+:::

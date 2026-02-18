@@ -11,7 +11,7 @@ Kategori adalah pondasi pengorganisasian website. Tanpa kategori yang benar, ber
 Buka Sidebar kiri > **CMS General** > **Kategori**.
 
 :::tip[Area Gambar: List Kategori]
-![Daftar Kategori CMS](https://via.placeholder.com/1200x400?text=Screenshot+Daftar+Kategori)
+![Daftar Kategori CMS](../../../../assets/admin-guide/content-management/list_kategori.png)
 :::
 
 ## 2. Mengapa Kategori Sangat Penting?

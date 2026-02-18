@@ -13,13 +13,16 @@ Berikut adalah rincian kolom yang harus diisi untuk membuat profil jurusan yang 
 
 ### 2. Tab: Profil Utama
 :::tip[Area Gambar: Tab Profil]
-![Screenshot Tab Profil Jurusan](https://via.placeholder.com/1200x400?text=Screenshot+Formulir+Profil+Jurusan)
+![Screenshot Tab Profil Jurusan](../../../../../../assets/admin-guide/content-management/informasi_umum_jurusan.png)
 :::
 *   **Visi & Misi**: Fokus pada kompetensi yang ingin dicapai siswa.
 *   **Sejarah Singkat**: Kapan jurusan ini berdiri.
 *   **Logo Jurusan**: Gunakan file transparan (.png) agar terlihat profesional.
 
 ### 3. Tab: Akademik & Fasilitas
+:::tip[Area Gambar: Layout Jurusan]
+![Screenshot Tab Layout Jurusan](../../../../../../assets/admin-guide/content-management/layout_jurusan.png)
+:::
 *   **Daftar Mata Pelajaran**: Apa saja yang dipelajari siswa?
 *   **Fasilitas Unggulan**: Sebutkan alat-alat canggih yang dimiliki (Misal: Mesin CNC, Lab iMac, dll).
 

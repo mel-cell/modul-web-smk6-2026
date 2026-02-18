@@ -8,7 +8,7 @@ sidebar:
 Setiap kali Anda memasukkan atau mengubah data, ada dua pilihan utama untuk menyimpan hasil kerja Anda. Begitu penting untuk memahami perbedaannya agar konten tidak salah tayang.
 
 :::tip[Area Gambar: Tombol Simpan]
-![Screenshot Area Footer Formulir](https://via.placeholder.com/1200x200?text=Screenshot+Tombol+Save+Draft+vs+Publish)
+![Screenshot Area Footer Formulir](../../../../../assets/admin-guide/content-management/tombol_simpan.png)
 :::
 
 ## 1. Save Draft (Simpan Draft)

@@ -24,6 +24,6 @@ Sistem SMK6 Engine biasanya akan membuatkan Slug secara otomatis saat Anda menge
 :::
 
 :::tip[Area Gambar: Kolom Slug]
-![Letak Kolom Slug di CMS](https://via.placeholder.com/1200x300?text=Screenshot+Kolom+Slug+di+Formulir)
-*Tunjukkan letak kolom Slug yang biasanya berada di bawah Judul.*
+![Letak Kolom Slug di CMS](../../../../assets/admin-guide/introduction/slug.png)
+*Slug biasanya berada di bawah Judul atau tersimpan di dalam menu 'SEO' atau 'Meta'.*
 :::

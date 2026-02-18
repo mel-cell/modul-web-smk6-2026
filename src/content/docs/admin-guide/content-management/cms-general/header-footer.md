@@ -11,7 +11,7 @@ Menu Navigasi (Header) dan informasi di bagian bawah (Footer) dikelola melalui m
 Buka Sidebar > **Globals** > **Header**.
 
 :::tip[Area Gambar: Struktur Menu Header]
-![Pengaturan Link Header](https://via.placeholder.com/1200x500?text=Screenshot+Global+Header+Links)
+![Pengaturan Link Header](../../../../../assets/admin-guide/content-management/header.png)
 :::
 
 Di sini Anda bisa:
@@ -23,7 +23,7 @@ Di sini Anda bisa:
 Buka Sidebar > **Globals** > **Footer**.
 
 :::tip[Area Gambar: Info Footer]
-![Pengaturan Isi Footer](https://via.placeholder.com/1200x500?text=Screenshot+Global+Footer+Info)
+![Pengaturan Isi Footer](../../../../../assets/admin-guide/content-management/footer.png)
 :::
 
 Biasanya berisi:

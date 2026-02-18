@@ -8,7 +8,7 @@ sidebar:
 Saat masyarakat mengisi formulir "Hubungi Kami" di website, pesannya tidak hilang begitu saja. Anda bisa membacanya di sini.
 
 :::tip[Area Gambar: List Pesan]
-![Daftar Form Submissions](https://via.placeholder.com/1200x400?text=Screenshot+Daftar+Pesan+Masuk)
+![Daftar Form Submissions](../../../../../../assets/admin-guide/content-management/list_pesan.png)
 :::
 
 ## 1. Memilih Pesan

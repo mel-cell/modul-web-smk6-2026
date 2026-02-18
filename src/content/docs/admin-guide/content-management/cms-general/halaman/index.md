@@ -11,7 +11,7 @@ Project SMK6 Engine menggunakan teknologi **Page Builder**. Artinya, Anda bisa m
 Buka menu **CMS General** > **Halaman** > Pilih halaman yang ingin diubah (Misal: Home).
 
 :::tip[Area Gambar: List Halaman]
-![Koleksi Halaman CMS](https://via.placeholder.com/1200x400?text=Screenshot+Daftar+Halaman+Web)
+![Koleksi Halaman CMS](../../../../../../assets/admin-guide/content-management/list_halaman.png)
 :::
 
 ## 2. Struktur Balok (Layout Blocks)
