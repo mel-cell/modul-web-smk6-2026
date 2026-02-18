@@ -37,6 +37,10 @@ Saat Anda menekan tombol **Create New** pada Berita, Anda akan melihat formulir 
 ### 5. Penulis (Authors)
 *   **Apa yang harus diisi?** Pilih nama guru atau staf yang menulis berita ini. Nama yang terpilih akan muncul sebagai "By: Nama" di website.
 
+### 6. Slug (Link Otomatis)
+*   **Apa fungsinya?** Ini adalah alamat unik berita Anda.
+*   **Penting**: Biasanya terisi otomatis dari Judul. Pastikan tidak ada spasi (ganti dengan `-`) dan jangan diubah setelah berita disebar ke media sosial agar link tidak mati.
+
 :::danger[Catatan Penting]
-Jangan lupa untuk selalu memeriksa **Slug**. Slug adalah link URL (misal: `smkn6malang/berita/judul-berita-ini`). Pastikan slug-nya rapi dan tidak ada karakter aneh.
+Jangan lupa untuk selalu memeriksa **Slug**. Judul boleh diubah kapan saja, tapi jika Anda mengubah Slug setelah dipublikasikan, maka link yang lama akan Error 404.
 :::
