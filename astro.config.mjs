@@ -45,7 +45,20 @@ export default defineConfig({
         },
         {
           label: 'Part 3: Admin Guide',
-          autogenerate: { directory: 'admin-guide' },
+          items: [
+            {
+              label: '1. Introduction',
+              autogenerate: { directory: 'admin-guide/introduction' },
+            },
+            {
+              label: '2. Content Management',
+              autogenerate: { directory: 'admin-guide/content-management' },
+            },
+            {
+              label: '3. Media Management',
+              autogenerate: { directory: 'admin-guide/media-management' },
+            },
+          ],
         },
       ],
     }),
