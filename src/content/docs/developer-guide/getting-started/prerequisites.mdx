@@ -4,6 +4,7 @@ description: Panduan teknis mendalam mengenai instalasi lingkungan pengembangan.
 sidebar:
   order: 2
 ---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 Bagian ini bukan sekadar daftar software, tapi langkah-langkah teknis untuk memastikan lingkungan koding Anda sehat.
 
@@ -11,16 +12,45 @@ Bagian ini bukan sekadar daftar software, tapi langkah-langkah teknis untuk mema
 
 Kita menggunakan **Node.js 20.x (LTS - Iron)**. Mengapa? Karena versi ini memiliki stabilitas terbaik untuk library yang kita gunakan.
 
-### Cek Versi:
-```bash
-node -v
-# Output harus v20.x.x
-```
-Jika versi Anda berbeda, sangat disarankan menggunakan **NVM (Node Version Manager)**:
-```bash
-nvm install 20
-nvm use 20
-```
+### Panduan Instalasi Node.js (v20)
+
+<Tabs>
+  <TabItem label="Windows" icon="seti:windows">
+    1. Unduh installer resmi Node.js (v20 LTS) dari [nodejs.org](https://nodejs.org/).
+    2. Jalankan installer dan ikuti petunjuk di layar (pastikan opsi penambahan `PATH` dicentang).
+    3. Buka PowerShell atau CMD, lalu verifikasi:
+       ```bash
+       node -v
+       # Target: v20.x.x
+       ```
+  </TabItem>
+  
+  <TabItem label="Linux" icon="linux">
+    Sangat disarankan menggunakan **NVM (Node Version Manager)** di Linux untuk mencegah konflik versi antar project:
+    
+    ```bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    # Restart terminal Anda
+    
+    nvm install 20
+    nvm use 20
+    node -v
+    ```
+  </TabItem>
+
+  <TabItem label="macOS" icon="apple">
+    Anda bisa menggunakan Homebrew atau NVM:
+    
+    ```bash
+    # Menggunakan Homebrew
+    brew install node@20
+    brew link node@20
+    
+    # Verifikasi
+    node -v
+    ```
+  </TabItem>
+</Tabs>
 
 ## 2. Mengapa PNPM adalah Harga Mati?
 
@@ -34,11 +64,33 @@ Berbeda dengan npm yang mengunduh ribuan file redundan untuk setiap project, pnp
 
 Pastikan Docker Engine Anda memiliki alokasi RAM minimal **4GB**. PostgreSQL dan Node.js yang berjalan bersamaan cukup memakan memori.
 
-### Pengecekan Docker:
-```bash
-docker compose version
-# Pastikan v2.x.x ke atas
-```
+### Instalasi & Pengecekan Docker:
+
+<Tabs>
+  <TabItem label="Windows & macOS" icon="laptop">
+    1. Unduh **Docker Desktop** dari [situs resminya](https://www.docker.com/products/docker-desktop/).
+    2. Alokasikan setidaknya 4GB RAM pada menu Settings > Resources.
+    3. Verifikasi instalasi:
+       ```bash
+       docker compose version
+       # Pastikan v2.x.x ke atas
+       ```
+  </TabItem>
+  
+  <TabItem label="Linux" icon="linux">
+    Gunakan repositori resmi Docker untuk performa *native*:
+    ```bash
+    # Instalasi via script resmi
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    
+    # Pastikan plugin compose terinstal
+    sudo apt-get install docker-compose-plugin
+    
+    docker compose version
+    ```
+  </TabItem>
+</Tabs>
 
 ## 4. Konfigurasi Git Global
 
