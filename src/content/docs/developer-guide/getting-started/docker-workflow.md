@@ -20,14 +20,25 @@ Flag `-d` (detached) artinya Docker akan berjalan di latar belakang sehingga ter
 ## 2. Layanan (Services) yang Berjalan
 
 Docker akan otomatis menyiapkan:
-1.  **App Service**: Aplikasi Next.js & Payload (Port 3000).
+1.  **App Service**: Aplikasi Next.js & Payload (Port **9098**).
 2.  **Database Service**: PostgreSQL (Port 5432).
+
+### Volume Mounts (Persistensi File)
+File yang diupload oleh Admin akan disimpan di folder lokal melalui **Bind Mount**:
+```yaml
+volumes:
+  - ./public/media:/app/public/media   # Gambar berita, galeri
+  - ./public/tour:/app/public/tour     # Foto panorama 360°
+```
+Ini memastikan file tidak hilang saat container di-restart atau di-rebuild.
 
 ## 3. Perintah Berguna
 
 *   **Melihat Log**: `docker compose logs -f` (Gunakan ini untuk melihat error yang terjadi di server).
 *   **Mematikan Sistem**: `docker compose down`.
-*   **Build Ulang**: `docker compose build --no-cache` (Gunakan ini jika Anda mengubah Dockerfile).
+*   **Build Ulang (Development)**: `docker compose build --no-cache` (Gunakan ini jika Anda mengubah Dockerfile).
+*   **Build Ulang (Production)**: `docker compose up -d --build` (Build dan langsung jalankan).
+*   **Cek Status Container**: `docker ps` (Lihat apakah container berjalan normal).
 
 ## 4. Masalah Umum (Troubleshooting)
 

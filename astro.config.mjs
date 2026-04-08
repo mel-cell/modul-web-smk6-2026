@@ -9,7 +9,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     starlight({
-      title: 'The SMK6 Engine',
+      title: 'Dokumentasi Website SMKN 6 Malang',
       social: [
         {
           icon: 'github',
@@ -55,7 +55,11 @@ export default defineConfig({
               autogenerate: { directory: 'admin-guide/content-management' },
             },
             {
-              label: '3. Media Management',
+              label: '3. Smart Tour (360°)',
+              autogenerate: { directory: 'admin-guide/content-management/smart-tour' },
+            },
+            {
+              label: '4. Media Management',
               autogenerate: { directory: 'admin-guide/media-management' },
             },
           ],

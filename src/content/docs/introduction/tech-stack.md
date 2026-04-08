@@ -30,3 +30,22 @@ Database relasional yang sangat kuat dan aman untuk menyimpan ribuan data siswa,
 ## 5. Git & GitHub (Collaboration)
 Seluruh riwayat perubahan kode tercatat di Git. Ini merupakan standar industri agar pengembangan bisa dilakukan secara kolaboratif oleh tim tanpa takut merusak kode yang sudah ada.
 *   **Referensi**: [GitHub Guides](https://docs.github.com/en/get-started/start-your-journey/hello-world)
+
+## 6. Caddy (Reverse Proxy & SSL)
+Caddy bertindak sebagai "penjaga gerbang" server. Setiap permintaan dari browser pengunjung akan melewati Caddy terlebih dahulu.
+*   **Referensi**: [Caddy Documentation](https://caddyserver.com/docs/)
+*   **Keunggulan**: Otomatis mengelola sertifikat SSL (HTTPS) tanpa konfigurasi manual. Cukup tulis nama domain, Caddy akan mengurus sisanya.
+
+## 7. Tailwind CSS (Styling)
+Framework CSS utility-first yang memungkinkan kita membangun tampilan modern tanpa menulis file CSS terpisah.
+*   **Referensi**: [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+*   **Keunggulan**: Kecepatan development sangat tinggi karena styling langsung ditulis di komponen React.
+
+## 8. Sharp (Image Processing)
+Library server-side untuk memproses gambar (resize, convert, compress). Setiap gambar yang diunggah akan otomatis dibuatkan dalam berbagai ukuran oleh Sharp.
+*   **Referensi**: [Sharp Documentation](https://sharp.pixelplumbing.com/)
+
+## 9. Photo Sphere Viewer (Smart Tour)
+Library JavaScript untuk menampilkan foto panorama 360° secara interaktif di browser. Digunakan khusus untuk fitur **Smart Tour** (Tur Virtual Sekolah).
+*   **Referensi**: [Photo Sphere Viewer v5](https://photo-sphere-viewer.js.org/)
+

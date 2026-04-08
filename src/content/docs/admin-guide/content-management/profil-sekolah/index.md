@@ -13,6 +13,7 @@ Kelompok menu ini berisi segala sesuatu yang menunjukkan identitas dan prestasi 
 2.  **Prestasi Siswa**: Galeri piala dan penghargaan siswa.
 3.  **Profil Sekolah (Global)**: Alamat, Visi & Misi pusat, serta kontak resmi.
 4.  **Kompetensi**: Penjelasan singkat mengenai arah pendidikan di sekolah.
+5.  **Kalender Akademik**: Jadwal kegiatan tahunan sekolah yang bisa dikelola per tahun ajaran.
 
 :::note
 Admin Humas biasanya akan menghabiskan 80% waktunya di bagian ini untuk memastikan website tetap "hidup" dengan konten terbaru.

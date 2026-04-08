@@ -63,5 +63,6 @@ Sistem menggunakan **On-Demand Revalidation**. Begitu Anda menekan **Publish**, 
 :::
 
 ## 4. Troubleshooting Umum
-*   **Gambar Tidak Muncul**: Cek folder Media, pastikan file tidak terhapus di S3/Storage.
+*   **Gambar Tidak Muncul**: Cek folder Media, pastikan file tidak terhapus. Lakukan hard refresh (`Ctrl + Shift + R`) jika perlu.
 *   **Slug Bentrok**: Jika ada judul yang sama persis, sistem akan menambahkan angka di belakang slug secara otomatis (misal: `berita-hari-ini-1`).
+*   **Upload Gagal (502)**: File terlalu besar. Kompres gambar hingga < 2 MB sebelum upload.
