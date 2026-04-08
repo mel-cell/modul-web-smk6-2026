@@ -16,7 +16,7 @@ Sebelum melakukan penginputan, admin harus memahami struktur navigasi pada CMS P
 3.  **Action**: Klik tombol **"Create New"**. Sistem akan membuka formulir kosong dengan ID unik yang tersimpan sementara sebagai draf.
 
 :::tip[Navigasi Visual]
-![Dashboard Utama](../../../../assets/admin-guide/introduction/dashboard-utama.png)
+![Dashboard Utama](/modul-web-smk6-2026/img/admin-guide/introduction/dashboard-utama.png)
 *Gunakan Sidebar sebagai kontrol navigasi utama Anda.*
 :::
 

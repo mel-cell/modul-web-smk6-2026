@@ -11,7 +11,7 @@ Ekstrakurikuler adalah wadah bakat siswa. Informasi yang menarik akan meningkatk
 Buka Sidebar kiri > **Data Sekolah** > **Ekstrakurikuler**.
 
 :::tip[Area Gambar: List Ekskul]
-![Daftar Ekskul](../../../../../assets/admin-guide/content-management/list_ekskul.png)
+![Daftar Ekskul](/modul-web-smk6-2026/img/admin-guide/content-management/list_ekskul.png)
 :::
 
 ## 2. Bedah Kolom Input (Field Guide)
@@ -27,7 +27,7 @@ Buka Sidebar kiri > **Data Sekolah** > **Ekstrakurikuler**.
 
 ### **C. Galeri & Dokumentasi**
 :::tip[Area Gambar: Galeri Ekskul]
-![Input Galeri Foto Ekskul](../../../../../assets/admin-guide/content-management/layout_jurusan.png)
+![Input Galeri Foto Ekskul](/modul-web-smk6-2026/img/admin-guide/content-management/layout_jurusan.png)
 *Anda bisa menambahkan banyak foto kegiatan di bagian galeri ini.*
 :::
 *   Pastikan ada minimal 3 foto kegiatan yang seru (sedang latihan atau saat tampil).

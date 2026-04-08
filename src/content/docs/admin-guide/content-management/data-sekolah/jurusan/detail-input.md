@@ -20,7 +20,7 @@ Formulir Jurusan dibagi menjadi beberapa Tab untuk memudahkan manajemen data yan
 
 ### **A. Tab: Informasi Umum (Core Info)**
 :::tip[Visual Tab Profil]
-![Screenshot Tab Profil Jurusan](../../../../../../assets/admin-guide/content-management/informasi_umum_jurusan.png)
+![Screenshot Tab Profil Jurusan](/modul-web-smk6-2026/img/admin-guide/content-management/informasi_umum_jurusan.png)
 :::
 
 *   **Nama Jurusan**: Nama resmi sesuai SK pendirian.
@@ -34,7 +34,7 @@ Formulir Jurusan dibagi menjadi beberapa Tab untuk memudahkan manajemen data yan
 
 ### **C. Tab: Fasilitas & Bengkel**
 :::tip[Visual Layout]
-![Screenshot Tab Layout Jurusan](../../../../../../assets/admin-guide/content-management/layout_jurusan.png)
+![Screenshot Tab Layout Jurusan](/modul-web-smk6-2026/img/admin-guide/content-management/layout_jurusan.png)
 :::
 
 *   **Gallery Fasilitas (Blocks)**: Gunakan komponen *Media Grid* untuk menampilkan foto-foto Laboratorium, Bengkel, atau Studio. 

@@ -8,12 +8,12 @@ sidebar:
 Selamat datang di panel kendali SMK Negeri 6 Malang. Halaman ini akan memandu Anda mengenal "peta" kerja di website ini.
 
 :::tip[Area Gambar: Halaman Login]
-![Halaman Login Admin](../../../../assets/admin-guide/introduction/loginpage.png)
+![Halaman Login Admin](/modul-web-smk6-2026/img/admin-guide/introduction/loginpage.png)
 *Masukkan email dan password yang telah diberikan oleh tim IT.*
 :::
 
 :::tip[Area Gambar: Dashboard Utama]
-![Screenshot Dashboard Utama Payload](../../../../assets/admin-guide/introduction/dashboard-utama.png)
+![Screenshot Dashboard Utama Payload](/modul-web-smk6-2026/img/admin-guide/introduction/dashboard-utama.png)
 *Tampilan setelah berhasil masuk ke sistem.*
 :::
 

@@ -12,7 +12,7 @@ Berbeda dengan Berita atau Jurusan yang memiliki banyak data, **Header** dan **F
 Header dikelola melalui Sidebar > **Globals** > **Header**. Ini adalah kontrol pusat untuk semua elemen navigasi di bagian atas layar.
 
 :::tip[Visual Struktur Header]
-![Pengaturan Link Header](../../../../../assets/admin-guide/content-management/header.png)
+![Pengaturan Link Header](/modul-web-smk6-2026/img/admin-guide/content-management/header.png)
 :::
 
 ### **A. Pengaturan Logo & Branding**
@@ -32,7 +32,7 @@ Sistem mendukung menu bertingkat (Nested Navigation):
 Footer adalah bagian paling bawah website yang berfungsi sebagai pusat informasi kontak, media sosial, dan link legal/penting lainnya.
 
 :::tip[Visual Info Footer]
-![Pengaturan Isi Footer](../../../../../assets/admin-guide/content-management/footer.png)
+![Pengaturan Isi Footer](/modul-web-smk6-2026/img/admin-guide/content-management/footer.png)
 :::
 
 ### **A. Kolom Informasi Sekolah**

@@ -15,7 +15,7 @@ Setiap halaman dikelola melalui koleksi **Halaman** di bawah grup menu **CMS Gen
 3.  **SEO & Metadata**: Pengaturan bagaimana halaman ini muncul di Google.
 
 :::tip[Visual Index Halaman]
-![Koleksi Halaman CMS](../../../../../../assets/admin-guide/content-management/list_halaman.png)
+![Koleksi Halaman CMS](/modul-web-smk6-2026/img/admin-guide/content-management/list_halaman.png)
 *Gunakan fitur pencarian di pojok kanan atas untuk menemukan halaman spesifik seperti 'Beranda' atau 'Profil'.*
 :::
 

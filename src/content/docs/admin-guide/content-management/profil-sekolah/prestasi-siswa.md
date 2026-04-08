@@ -11,7 +11,7 @@ Halaman **Prestasi Siswa** adalah etalase kebanggaan sekolah. Setiap piala yang 
 Buka Sidebar kiri > **Profil Sekolah** > **Prestasi Siswa**.
 
 :::tip[Area Gambar: List Prestasi]
-![Daftar Koleksi Prestasi](../../../../../assets/admin-guide/content-management/list_halaman.png)
+![Daftar Koleksi Prestasi](/modul-web-smk6-2026/img/admin-guide/content-management/list_halaman.png)
 *Contoh tampilan daftar prestasi siswa.*
 :::
 
@@ -26,7 +26,7 @@ Saat menambah prestasi baru, perhatikan kolom-kolom berikut:
 
 ### **B. Dokumentasi Visual**
 :::tip[Area Gambar: Foto Penyerahan Piala]
-![Upload Foto Prestasi](../../../../../assets/admin-guide/content-management/informasi_umum_jurusan.png)
+![Upload Foto Prestasi](/modul-web-smk6-2026/img/admin-guide/content-management/informasi_umum_jurusan.png)
 *Contoh formulir untuk mengunggah dokumentasi prestasi.*
 :::
 *   **Foto Utama**: Unggah foto saat penyerahan piala atau sertifikat.

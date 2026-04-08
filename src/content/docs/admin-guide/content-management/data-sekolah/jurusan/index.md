@@ -8,7 +8,7 @@ sidebar:
 Setiap Kompetensi Keahlian (Jurusan) memiliki halaman mading digitalnya sendiri. Di sini Anda bisa memamerkan keunggulan jurusan masing-masing.
 
 :::tip[Area Gambar: Dashboard Jurusan]
-![Daftar Jurusan Sekolah](../../../../../../assets/admin-guide/content-management/dashboard_jurusan.png)
+![Daftar Jurusan Sekolah](/modul-web-smk6-2026/img/admin-guide/content-management/dashboard_jurusan.png)
 :::
 
 ## Menu Utama Jurusan
