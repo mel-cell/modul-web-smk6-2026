@@ -4,6 +4,7 @@ description: Cara menyiapkan lingkungan pengembangan dan menjalankan aplikasi de
 sidebar:
   order: 1
 ---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 Panduan ini ditujukan untuk developer yang ingin melakukan pengembangan atau modifikasi pada aplikasi News Desktop.
 
@@ -11,32 +12,70 @@ Panduan ini ditujukan untuk developer yang ingin melakukan pengembangan atau mod
 
 Pastikan software berikut sudah terinstal:
 
-| Software | Versi Minimum | Cara Cek |
-|----------|--------------|----------|
-| **.NET SDK** | 10.0 | `dotnet --version` |
-| **Git** | 2.x | `git --version` |
-| **.NET Build Tools** (Linux) | 2.x | `dpkg -l libwebkit2gtk*` |
+| Software | Keterangan |
+|----------|------------|
+| **.NET SDK 10.0** | Lingkungan runtime dan antarmuka CLI |
+| **Git 2.x** | Version control untuk cloning repository |
 
-### Instalasi .NET SDK (Linux)
-```bash
-# Ubuntu/Debian
-sudo apt install dotnet-sdk-10.0
+### Panduan Instalasi per Sistem Operasi
 
-# Atau gunakan script resmi Microsoft
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-chmod +x dotnet-install.sh
-./dotnet-install.sh --channel 10.0
-```
+<Tabs>
+  <TabItem label="Windows" icon="seti:windows">
+    Di Windows, persiapan paling mudah karena semuanya tersedia langsung dari Microsoft.
+    
+    1. **Install .NET SDK 10.0**: 
+       Unduh dari [situs resmi .NET](https://dotnet.microsoft.com/download) lalu jalankan installer `.exe`-nya.
+    
+    2. **Install Git**: 
+       Unduh dari [Git for Windows](https://gitforwindows.org/) atau gunakan command prompt:
+       ```bash
+       winget install --id Git.Git -e --source winget
+       ```
+    
+    *Catatan: Native Windowing di Windows menggunakan engine Edge WebView2 yang biasanya sudah terinstal secara otomatis bawaan sistem.*
+  </TabItem>
+  
+  <TabItem label="Linux" icon="linux">
+    Di Linux, Anda dapat menggunakan package manager.
 
-### Dependency Native (Linux)
-Beberapa environment Linux membutuhkan dependensi GUI native untuk merender window aplikasi Desktop:
-```bash
-sudo apt install libwebkit2gtk-4.1-dev
-```
+    1. **Install .NET SDK 10.0**:
+       ```bash
+       # Ubuntu/Debian
+       sudo apt install dotnet-sdk-10.0
+       
+       # Atau gunakan script resmi Microsoft
+       wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+       chmod +x dotnet-install.sh
+       ./dotnet-install.sh --channel 10.0
+       ```
 
-:::warning[Penting untuk Linux]
-Tanpa dependensi GUI di atas, engine UI akan gagal dijalankan. Pastikan library ini terinstal sebelum memulai development di Linux.
-:::
+    2. **Dependency Native**:
+       Beberapa environment Linux membutuhkan dependensi GUI native untuk merender window aplikasi Desktop:
+       ```bash
+       sudo apt install libwebkit2gtk-4.1-dev
+       ```
+
+    :::warning[Penting untuk Linux]
+    Tanpa dependensi GUI di atas, engine UI akan gagal dijalankan. Pastikan library ini terinstal sebelum memulai development di Linux.
+    :::
+  </TabItem>
+
+  <TabItem label="macOS" icon="apple">
+    Di macOS, Anda dapat menginstal kebutuhan menggunakan Homebrew atau installer resmi.
+
+    1. **Install .NET SDK 10.0**:
+       Unduh direktori `.pkg` installer dari situs microsoft, atau jalankan via brew:
+       ```bash
+       brew install --cask dotnet-sdk
+       ```
+
+    2. **Persyaratan XCode**:
+       Aplikasi memerlukan command line tools bawaan Apple untuk integrasi native UI.
+       ```bash
+       xcode-select --install
+       ```
+  </TabItem>
+</Tabs>
 
 ## Clone & Jalankan
 
