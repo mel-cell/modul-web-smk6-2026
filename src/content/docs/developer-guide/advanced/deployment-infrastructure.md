@@ -2,7 +2,7 @@
 title: "Deployment & Infrastruktur"
 description: Panduan deployment ke production server menggunakan Docker dan Caddy.
 sidebar:
-  order: 5
+ order: 5
 ---
 
 Sistem SMK6 Engine berjalan di atas **Docker** dengan **Caddy** sebagai reverse proxy. Halaman ini menjelaskan arsitektur deployment, langkah-langkah deploy, dan troubleshooting yang sering muncul.
@@ -11,23 +11,23 @@ Sistem SMK6 Engine berjalan di atas **Docker** dengan **Caddy** sebagai reverse 
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                   SERVER                         │
-│                                                  │
-│  ┌─────────┐     ┌──────────────────────────┐   │
-│  │  Caddy   │────▶│  Docker: smk6-app        │   │
-│  │ (SSL/TLS)│     │  Port: 9098              │   │
-│  │ Port 443 │     │  Next.js + Payload CMS   │   │
-│  └─────────┘     └──────────┬───────────────┘   │
-│                              │                    │
-│                    ┌─────────▼──────────┐        │
-│                    │ Docker: postgres_db │        │
-│                    │ Port: 5432         │        │
-│                    │ PostgreSQL 15      │        │
-│                    └────────────────────┘        │
-│                                                  │
-│  Bind Mounts:                                    │
-│  ./public/media ◄──▶ /app/public/media          │
-│  ./public/tour  ◄──▶ /app/public/tour           │
+│ SERVER │
+│ │
+│ ┌─────────┐ ┌──────────────────────────┐ │
+│ │ Caddy │────│ Docker: smk6-app │ │
+│ │ (SSL/TLS)│ │ Port: 9098 │ │
+│ │ Port 443 │ │ Next.js + Payload CMS │ │
+│ └─────────┘ └──────────┬───────────────┘ │
+│ │ │
+│ ┌─────────▼──────────┐ │
+│ │ Docker: postgres_db │ │
+│ │ Port: 5432 │ │
+│ │ PostgreSQL 15 │ │
+│ └────────────────────┘ │
+│ │
+│ Bind Mounts: │
+│ ./public/media ◄── /app/public/media │
+│ ./public/tour ◄── /app/public/tour │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -37,22 +37,22 @@ File `docker-compose.yml` mendefinisikan layanan utama:
 
 ```yaml
 services:
-  app:
-    container_name: smk6-app
-    build: .
-    ports:
-      - "9098:9098"
-    environment:
-      - DATABASE_URI=postgresql://...
-      - PAYLOAD_SECRET=...
-      - NEXT_PUBLIC_SERVER_URL=https://test.smkn6malang.sch.id
-    deploy:
-      resources:
-        limits:
-          memory: 1536m  # Wajib untuk proses resize gambar 360°
-    volumes:
-      - ./public/media:/app/public/media
-      - ./public/tour:/app/public/tour
+ app:
+ container_name: smk6-app
+ build: .
+ ports:
+ - "9098:9098"
+ environment:
+ - DATABASE_URI=postgresql://...
+ - PAYLOAD_SECRET=...
+ - NEXT_PUBLIC_SERVER_URL=https://test.smkn6malang.sch.id
+ deploy:
+ resources:
+ limits:
+ memory: 1536m # Wajib untuk proses resize gambar 360°
+ volumes:
+ - ./public/media:/app/public/media
+ - ./public/tour:/app/public/tour
 ```
 
 ### Kenapa Memory 1536 MB?
@@ -61,14 +61,14 @@ Proses **Sharp** (library resize gambar) membutuhkan RAM besar saat memproses fo
 ## Caddy (Reverse Proxy + SSL)
 
 Caddy berjalan di level sistem operasi (bukan di Docker) dan secara otomatis menangani:
--   **SSL/TLS Certificate**: Sertifikat HTTPS gratis via Let's Encrypt.
--   **Reverse Proxy**: Meneruskan request dari domain ke port 9098.
+- **SSL/TLS Certificate**: Sertifikat HTTPS gratis via Let's Encrypt.
+- **Reverse Proxy**: Meneruskan request dari domain ke port 9098.
 
 ### Lokasi Konfigurasi
 
 ```
-/etc/caddy/Caddyfile          ← File utama, mengimpor file lain
-/home/mel/Caddy/Caddyfile     ← Konfigurasi domain pribadi
+/etc/caddy/Caddyfile ← File utama, mengimpor file lain
+/home/mel/Caddy/Caddyfile ← Konfigurasi domain pribadi
 ```
 
 ### Contoh Konfigurasi
@@ -76,7 +76,7 @@ Caddy berjalan di level sistem operasi (bukan di Docker) dan secara otomatis men
 ```
 # /home/mel/Caddy/Caddyfile
 test.smkn6malang.sch.id {
-    reverse_proxy localhost:9098
+ reverse_proxy localhost:9098
 }
 ```
 

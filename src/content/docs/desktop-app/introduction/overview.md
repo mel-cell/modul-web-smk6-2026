@@ -2,7 +2,7 @@
 title: "Apa itu News Desktop?"
 description: Pengenalan aplikasi News SMKN 6 Malang versi Desktop.
 sidebar:
-  order: 1
+ order: 1
 ---
 
 **News SMKN 6 Malang Desktop** adalah aplikasi berita desktop native yang menampilkan berita dan informasi sekolah langsung dari komputer pengguna, tanpa memerlukan browser. Aplikasi ini terhubung langsung dengan website utama SMKN 6 Malang melalui API.
@@ -19,22 +19,22 @@ sidebar:
 
 ## Fitur Utama
 
-### 🚀 Real-time News Feed
+### Real-time News Feed
 Menampilkan daftar berita terbaru secara dinamis yang diambil langsung dari **Payload CMS** (backend website utama).
 
-### 🔐 Integrated Admin Panel
+### Integrated Admin Panel
 Kelola berita (CRUD) secara instan melalui Admin Panel Payload CMS yang tertanam dalam aplikasi menggunakan **Iframe Modal**. Cukup klik tombol profil di header.
 
-### 🔍 Pencarian Cerdas
+### Pencarian Cerdas
 Temukan berita dengan cepat melalui kolom pencarian di header. Tekan **Enter** untuk melihat hasil.
 
-### 🏷️ Kategori Dinamis
+### Kategori Dinamis
 Menu samping (sidebar) menampilkan kategori berita secara otomatis beserta **jumlah artikel** di setiap kategorinya.
 
-### 🔔 Sistem Notifikasi
+### Sistem Notifikasi
 Indikator lonceng cerdas yang memberitahu pengguna jika ada berita baru yang dirilis dalam **3 hari terakhir**. Titik merah akan berkedip sebagai notifikasi.
 
-### 📱 UI/UX Modern
+### UI/UX Modern
 Desain antarmuka yang bersih dan modern menggunakan **Tailwind CSS** dengan layout sidebar, header, dan area konten.
 
 ## Hubungan dengan Website Utama
@@ -42,11 +42,11 @@ Desain antarmuka yang bersih dan modern menggunakan **Tailwind CSS** dengan layo
 Aplikasi desktop ini **bukan aplikasi mandiri** — ia adalah **klien** (pengguna) dari website utama SMKN 6 Malang. Semua data berita berasal dari API yang sama (`/api/news`).
 
 ```
-┌──────────────────┐         REST API          ┌──────────────────┐
-│  Desktop App     │ ◄──────────────────────── │  Website SMKN 6  │
-│  (Photino.Blazor)│    GET /api/news          │  (Payload CMS)   │
-│                  │    GET /api/news/{id}      │                  │
-└──────────────────┘                            └──────────────────┘
+┌──────────────────┐ REST API ┌──────────────────┐
+│ Desktop App │ ◄──────────────────────── │ Website SMKN 6 │
+│ (Photino.Blazor)│ GET /api/news │ (Payload CMS) │
+│ │ GET /api/news/{id} │ │
+└──────────────────┘ └──────────────────┘
 ```
 
 :::note[Data Tunggal]

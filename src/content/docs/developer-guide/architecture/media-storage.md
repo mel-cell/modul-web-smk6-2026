@@ -2,7 +2,7 @@
 title: "Media & Storage Management"
 description: Mengelola aset gambar dan dokumen di lingkungan Docker.
 sidebar:
-  order: 4
+ order: 4
 ---
 
 Sistem ini menggunakan penyimpanan **lokal (Bind Mount)** untuk menyimpan file media yang diunggah. File akan disimpan langsung di folder server yang terhubung ke container Docker, sehingga file tetap **persisten** (tidak hilang) saat container di-restart.
@@ -25,10 +25,10 @@ Sistem memiliki **dua direktori upload** yang terpisah:
 ```yaml
 # docker-compose.yml
 services:
-  app:
-    volumes:
-      - ./public/media:/app/public/media   # Bind Mount media
-      - ./public/tour:/app/public/tour     # Bind Mount tour 360
+ app:
+ volumes:
+ - ./public/media:/app/public/media # Bind Mount media
+ - ./public/tour:/app/public/tour # Bind Mount tour 360
 ```
 
 **Bind Mount** berarti folder di **host server** (`./public/media/`) langsung tersambung ke folder di **container Docker** (`/app/public/media/`). File yang diupload di Admin Panel akan langsung muncul di kedua lokasi.
@@ -38,14 +38,14 @@ services:
 Saat mendefinisikan koleksi upload di Payload, gunakan **`process.cwd()`** untuk path absolut:
 
 ```typescript
-// ✅ BENAR - Gunakan process.cwd()
+// BENAR - Gunakan process.cwd()
 upload: {
-  staticDir: path.resolve(process.cwd(), 'public/media'),
+ staticDir: path.resolve(process.cwd(), 'public/media'),
 }
 
-// ❌ SALAH - Jangan gunakan dirname
+// SALAH - Jangan gunakan dirname
 upload: {
-  staticDir: path.resolve(dirname, '../../public/media'),
+ staticDir: path.resolve(dirname, '../../public/media'),
 }
 ```
 
@@ -93,28 +93,28 @@ import Image from 'next/image'
 Jangan lupa daftarkan hostname di `next.config.js` jika menggunakan URL penuh:
 ```javascript
 images: {
-  remotePatterns: [
-    {
-      protocol: 'https',
-      hostname: 'test.smkn6malang.sch.id',
-    },
-  ],
+ remotePatterns: [
+ {
+ protocol: 'https',
+ hostname: 'test.smkn6malang.sch.id',
+ },
+ ],
 },
 ```
 
 ## 5. Tips Optimasi
 
--   **Format**: Sistem otomatis mengkonversi ke **WebP**. Tidak perlu konversi manual sebelum upload.
--   **Ukuran Maksimal**: Batas yang disarankan adalah **5 MB** per file untuk gambar biasa, dan **10 MB** untuk panorama 360°.
--   **Kompresi Sebelum Upload**: Untuk foto dari kamera DSLR (biasanya 15-30 MB), kompres dulu menggunakan [Squoosh](https://squoosh.app/) atau [TinyPNG](https://tinypng.com/).
--   **Memory Docker**: Pastikan memory limit container minimal **1536 MB** (`1.5 GB`) agar proses resize gambar beresolusi tinggi tidak gagal karena kehabisan memori (OOM).
+- **Format**: Sistem otomatis mengkonversi ke **WebP**. Tidak perlu konversi manual sebelum upload.
+- **Ukuran Maksimal**: Batas yang disarankan adalah **5 MB** per file untuk gambar biasa, dan **10 MB** untuk panorama 360°.
+- **Kompresi Sebelum Upload**: Untuk foto dari kamera DSLR (biasanya 15-30 MB), kompres dulu menggunakan [Squoosh](https://squoosh.app/) atau [TinyPNG](https://tinypng.com/).
+- **Memory Docker**: Pastikan memory limit container minimal **1536 MB** (`1.5 GB`) agar proses resize gambar beresolusi tinggi tidak gagal karena kehabisan memori (OOM).
 
 :::warning[Masalah Upload 502]
 Jika Anda mengalami error **502 Bad Gateway** saat mengupload gambar berukuran besar, kemungkinan besar container kehabisan memori. Periksa memory limit di `docker-compose.yml`:
 ```yaml
 deploy:
-  resources:
-    limits:
-      memory: 1536m  # Minimal untuk proses resize gambar 360°
+ resources:
+ limits:
+ memory: 1536m # Minimal untuk proses resize gambar 360°
 ```
 :::
