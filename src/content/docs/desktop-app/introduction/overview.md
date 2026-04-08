@@ -43,8 +43,8 @@ Aplikasi desktop ini **bukan aplikasi mandiri** — ia adalah **klien** (penggun
 
 ```
 ┌──────────────────┐ REST API ┌──────────────────┐
-│ Desktop App │ ◄──────────────────────── │ Website SMKN 6 │
-│ (Photino.Blazor)│ GET /api/news │ (Payload CMS) │
+│ Native App │ ◄──────────────────────── │ Website SMKN 6 │
+│ (.NET Blazor) │ GET /api/news │ (Payload CMS) │
 │ │ GET /api/news/{id} │ │
 └──────────────────┘ └──────────────────┘
 ```

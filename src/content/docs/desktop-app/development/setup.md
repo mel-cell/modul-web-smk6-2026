@@ -15,7 +15,7 @@ Pastikan software berikut sudah terinstal:
 |----------|--------------|----------|
 | **.NET SDK** | 10.0 | `dotnet --version` |
 | **Git** | 2.x | `git --version` |
-| **WebKitGTK** (Linux) | 2.x | `dpkg -l libwebkit2gtk*` |
+| **.NET Build Tools** (Linux) | 2.x | `dpkg -l libwebkit2gtk*` |
 
 ### Instalasi .NET SDK (Linux)
 ```bash
@@ -28,14 +28,14 @@ chmod +x dotnet-install.sh
 ./dotnet-install.sh --channel 10.0
 ```
 
-### Instalasi WebKitGTK (Linux)
-Photino di Linux membutuhkan **WebKitGTK** sebagai webview engine:
+### Dependency Native (Linux)
+Beberapa environment Linux membutuhkan dependensi GUI native untuk merender window aplikasi Desktop:
 ```bash
 sudo apt install libwebkit2gtk-4.1-dev
 ```
 
 :::warning[Penting untuk Linux]
-Tanpa WebKitGTK, aplikasi akan crash saat dijalankan dengan error `DllNotFoundException: Photino.Native`. Pastikan library ini terinstal sebelum memulai development.
+Tanpa dependensi GUI di atas, engine UI akan gagal dijalankan. Pastikan library ini terinstal sebelum memulai development di Linux.
 :::
 
 ## Clone & Jalankan
@@ -58,7 +58,7 @@ Aplikasi akan terbuka dalam jendela desktop native.
 
 ```
 NewsDekstopSMK6/
-├── Program.cs                   # Entry point (konfigurasi Photino)
+├── Program.cs                   # Entry point (konfigurasi Native UI)
 ├── App.razor                    # Root Blazor component
 ├── _Imports.razor               # Global using statements
 ├── appsettings.json             # Konfigurasi API URL
@@ -102,8 +102,8 @@ NewsDekstopSMK6/
        │ HTML/CSS Rendering
        ▼
 ┌─────────────┐
-│  Photino    │ ← Native window (WebView)
-│  (Desktop)  │
+│ Native GUI  │ ← Sistem Window OS
+│ Container   │
 └─────────────┘
 ```
 
@@ -111,13 +111,13 @@ NewsDekstopSMK6/
 
 ### `Program.cs` — Entry Point
 ```csharp
-// Inisialisasi Photino
+// Inisialisasi Window Native
 var app = appBuilder.Build();
 app.MainWindow
     .SetTitle("News SMKN 6 Malang")
     .SetSize(1000, 800)         // Ukuran jendela
     .SetIconFile("favicon.ico") // Ikon di taskbar
-    .Load("index.html");        // Load HTML host
+    .Load("index.html");        // Load UI host
 ```
 
 ### `Data/NewsService.cs` — API Client

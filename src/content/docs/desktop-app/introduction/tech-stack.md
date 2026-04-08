@@ -5,15 +5,14 @@ sidebar:
  order: 2
 ---
 
-Aplikasi desktop ini menggunakan pendekatan modern: **menulis UI menggunakan web technology** (HTML/CSS/C#) lalu membungkusnya dalam jendela native. Ini mirip konsep Electron, tapi jauh lebih ringan.
+Aplikasi desktop ini menggunakan pendekatan pengembangan native dengan **.NET 10** dan **Blazor**. Ini memastikan performa tinggi, ukuran aplikasi yang kecil, dan penggunaan memori yang sangat efisien dibandingkan teknologi lawas berbasis browser.
 
-## 1. Photino (Desktop Wrapper)
+## 1. Native Desktop Engine
 
-**Photino** adalah framework ringan untuk membuat aplikasi desktop menggunakan teknologi web. Berbeda dengan **Electron** yang membawa seluruh browser Chromium (~200 MB), Photino menggunakan **webview bawaan OS** (WebKitGTK di Linux, WebView2 di Windows).
+Engine desktop menggunakan pustaka native .NET yang memanfaatkan rendering OS bawaan langsung dari sistem host, sehingga aplikasi berjalan sangat ringan. Pendekatan ini memungkinkan interaksi langsung (native) tanpa overhead memori besar.
 
-* **Referensi**: [Photino Official](https://www.tryphotino.io/)
-* **Keunggulan**: Ukuran aplikasi sangat kecil (~10 MB vs ~200 MB Electron).
-* **Versi**: Photino.Blazor `4.0.13`, Photino.Native `4.0.22`
+* **Keunggulan**: Ukuran aplikasi sangat kecil (~10 MB).
+* **Performa**: Eksekusi cepat, native OS rendering.
 
 ## 2. Blazor (UI Framework)
 
@@ -56,12 +55,12 @@ Konfigurasi URL API ada di file `appsettings.json`:
 }
 ```
 
-## Perbandingan dengan Alternatif
+## Perbandingan Arsitektur
 
-| Fitur | Photino.Blazor | Electron | Tauri |
-|-------|:-----------:|:--------:|:-----:|
-| **Ukuran App** | ~10 MB | ~200 MB | ~5 MB |
-| **Bahasa UI** | C# + HTML | JS + HTML | Rust + HTML |
-| **Memory Usage** | Rendah | Tinggi | Sangat Rendah |
-| **Learning Curve** | Mudah (jika sudah kenal .NET) | Mudah | Sedang |
-| **Cross-Platform** | | | |
+| Fitur | Native .NET Blazor | Aplikasi Web Biasa |
+|-------|:-----------:|:--------:|
+| **Akses File Sistem** | Ya (Full Access) | Terbatas (Sandbox) |
+| **Ukuran Memory** | Rendah (~30MB RAM) | Sedang - Tinggi |
+| **Integrasi OS** | Sangat Baik (Native Win/Linux) | Sedang |
+| **Penyimpanan Lokal**| Tidak Terbatas | Terbatas (Max ~50MB) |
+| **Eksekusi Background**| Diizinkan Penuh | Dibatasi Browser |
