@@ -11,22 +11,22 @@ Diagram berikut menunjukkan bagaimana komponen-komponen utama sistem saling terh
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        👤 PENGGUNA                               │
+│                        PENGGUNA                               │
 │              (Siswa, Orang Tua, Masyarakat Umum)                │
 └───────────────────────────┬─────────────────────────────────────┘
                             │ HTTPS
                             ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    🌐 CADDY (Reverse Proxy)                      │
+│                    CADDY (Reverse Proxy)                        │
 │                   test.smkn6malang.sch.id                       │
 │              SSL/TLS • Caching • Load Balancing                 │
 └───────────────────────────┬─────────────────────────────────────┘
                             │ Port 9098
                             ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                 📦 DOCKER CONTAINER (smk6-app)                   │
+│                 DOCKER CONTAINER (smk6-app)                     │
 │  ┌────────────────────────────────────────────────────────────┐ │
-│  │                   ⚡ NEXT.JS (App Router)                   │ │
+│  │                   NEXT.JS (App Router)                     │ │
 │  │                                                            │ │
 │  │  ┌──────────────┐  ┌──────────────┐  ┌────────────────┐  │ │
 │  │  │  (frontend)  │  │   (payload)  │  │    (tour)      │  │ │
@@ -41,7 +41,7 @@ Diagram berikut menunjukkan bagaimana komponen-komponen utama sistem saling terh
 │  │  └──────────────┘  └──────────────┘  └────────────────┘  │ │
 │  │                           │                               │ │
 │  │               ┌───────────┴───────────┐                   │ │
-│  │               │  🧩 PAYLOAD CMS        │                   │ │
+│  │               │    PAYLOAD CMS        │                   │ │
 │  │               │  (Data Engine)         │                   │ │
 │  │               │  • Collections (19)    │                   │ │
 │  │               │  • Globals (5)         │                   │ │
@@ -53,7 +53,7 @@ Diagram berikut menunjukkan bagaimana komponen-komponen utama sistem saling terh
                                │ TCP/IP
                                ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                  🗄️ PostgreSQL Database                          │
+│                    PostgreSQL Database                          │
 │                                                                 │
 │   ┌─────────┐ ┌──────────┐ ┌───────────┐ ┌──────────────────┐ │
 │   │ users   │ │  pages   │ │   news    │ │    majors        │ │

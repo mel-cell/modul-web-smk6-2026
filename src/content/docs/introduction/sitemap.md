@@ -13,7 +13,7 @@ Website SMK Negeri 6 Malang memiliki **5 menu navigasi utama** yang masing-masin
 
 ---
 
-### 📋 1. Profil Sekolah
+### 1. Profil Sekolah
 
 Menu dropdown pertama yang berisi informasi umum sekolah.
 
@@ -31,7 +31,7 @@ Menu dropdown pertama yang berisi informasi umum sekolah.
 
 ---
 
-### 🎓 2. Kompetensi Keahlian (Jurusan)
+### 2. Kompetensi Keahlian (Jurusan)
 
 Menu dropdown kedua yang menampilkan 10 jurusan.
 
@@ -52,7 +52,7 @@ Setiap halaman jurusan memiliki layout yang unik dan bisa dikustomisasi melalui 
 
 ---
 
-### 🤝 3. Hubin & Karir
+### 3. Hubin & Karir
 
 Menu dropdown ketiga untuk hubungan industri dan karir.
 
@@ -65,7 +65,7 @@ Menu dropdown ketiga untuk hubungan industri dan karir.
 
 ---
 
-### 📰 4. Berita
+### 4. Berita
 
 Menu langsung (bukan dropdown) ke arsip berita.
 
@@ -77,7 +77,7 @@ Menu langsung (bukan dropdown) ke arsip berita.
 
 ---
 
-### 🌐 5. Smart Tour 360°
+### 5. Smart Tour 360°
 
 Halaman khusus dengan layout fullscreen (tanpa header/footer).
 
@@ -92,7 +92,7 @@ Smart Tour menggunakan teknologi **Photo Sphere Viewer** untuk menampilkan foto 
 
 ---
 
-### ⚙️ Halaman Pendukung
+### 6. Halaman Pendukung
 
 | Halaman | URL | Deskripsi |
 |---------|-----|-----------|
@@ -107,9 +107,9 @@ Smart Tour menggunakan teknologi **Photo Sphere Viewer** untuk menampilkan foto 
 ## Hierarki Visual
 
 ```
-🏠 Home (/)
+Home (/)
 │
-├── 📋 Profil Sekolah
+├── Profil Sekolah
 │   ├── /profil
 │   ├── /visi-misi
 │   ├── /denah-fasilitas
@@ -119,7 +119,7 @@ Smart Tour menggunakan teknologi **Photo Sphere Viewer** untuk menampilkan foto 
 │   ├── /prestasi
 │   └── /kalender-akademik
 │
-├── 🎓 Kompetensi Keahlian
+├── Kompetensi Keahlian
 │   ├── /jurusan/rpl
 │   ├── /jurusan/tkj
 │   ├── /jurusan/sija
@@ -131,19 +131,19 @@ Smart Tour menggunakan teknologi **Photo Sphere Viewer** untuk menampilkan foto 
 │   ├── /jurusan/dpib
 │   └── /jurusan/kjij
 │
-├── 🤝 Hubin & Karir
+├── Hubin & Karir
 │   ├── /mitra-industri
 │   ├── /lowongan ──→ /lowongan/[slug]
 │   └── /pkl
 │
-├── 📰 Berita
+├── Berita
 │   ├── /berita ──→ /berita/page/[n]
 │   └── /berita/[slug]
 │
-├── 🌐 Smart Tour
+├── Smart Tour
 │   └── /smart-tour/[tourSlug] ──→ /smart-tour/.../[roomSlug]
 │
-└── ⚙️ Lainnya
+└── Lainnya
     ├── /search
     ├── /[slug]  (CMS Pages)
     ├── /kebijakan-privasi
