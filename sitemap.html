@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitemap — SMK Negeri 6 Malang</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #fff;
+        color: #1a1a1a;
+        padding: 40px;
+        min-width: 1200px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #111;
+      }
+      .subtitle {
+        text-align: center;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 32px;
+      }
+
+      .sitemap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      /* Root node */
+      .root {
+        background: #111827;
+        color: white;
+        padding: 12px 32px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      /* Vertical connector from root */
+      .v-line {
+        width: 2px;
+        height: 24px;
+        background: #94a3b8;
+      }
+
+      /* Horizontal spread bar */
+      .h-bar {
+        height: 2px;
+        background: #94a3b8;
+        width: 92%;
+        max-width: 1100px;
+      }
+
+      /* Sections container */
+      .sections {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      /* Each section column */
+      .section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        min-width: 0;
+      }
+
+      .section .v-line-sm {
+        width: 2px;
+        height: 16px;
+        background: #94a3b8;
+      }
+
+      .section-header {
+        width: 100%;
+        text-align: center;
+        padding: 8px 6px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: white;
+      }
+
+      .section-items {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        margin-top: 6px;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 8px;
+        border-radius: 6px;
+        font-size: 10.5px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        transition: background 0.15s;
+      }
+
+      .item .url {
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        color: #475569;
+        font-size: 9.5px;
+        white-space: nowrap;
+      }
+
+      .item .label {
+        color: #1e293b;
+        font-weight: 500;
+        font-size: 10.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .child-connector {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding-left: 16px;
+      }
+
+      .child-connector::before {
+        content: '└─';
+        color: #94a3b8;
+        font-family: monospace;
+        font-size: 11px;
+      }
+
+      .child-connector .item {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+      }
+
+      /* Color themes */
+      .blue {
+        background: #2563eb;
+      }
+      .green {
+        background: #16a34a;
+      }
+      .orange {
+        background: #ea580c;
+      }
+      .purple {
+        background: #7c3aed;
+      }
+      .red {
+        background: #dc2626;
+      }
+      .gray {
+        background: #64748b;
+      }
+      .teal {
+        background: #0d9488;
+      }
+
+      /* Smart Tour special section */
+      .tour-arch {
+        margin-top: 28px;
+        border: 2px solid #fecaca;
+        border-radius: 12px;
+        padding: 16px 24px;
+        max-width: 500px;
+        background: #fef2f2;
+      }
+      .tour-arch h3 {
+        font-size: 13px;
+        color: #dc2626;
+        margin-bottom: 8px;
+      }
+      .tour-flow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        color: #374151;
+      }
+      .tour-flow .node {
+        background: white;
+        border: 1px solid #fca5a5;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .tour-flow .arrow {
+        color: #dc2626;
+        font-weight: bold;
+      }
+
+      .footer-note {
+        text-align: center;
+        margin-top: 28px;
+        font-size: 10px;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sitemap — Website SMK Negeri 6 Malang</h1>
+    <p class="subtitle">https://test.smkn6malang.sch.id</p>
+
+    <div class="sitemap">
+      <div class="root">🏠 Home — /</div>
+      <div class="v-line"></div>
+      <div class="h-bar"></div>
+
+      <div class="sections">
+        <!-- PROFIL -->
+        <div class="section">
+          <div class="v-line-sm"></div>
+          <div class="section-header blue">📋 Profil Sekolah</div>
+          <div class="section-items">
+            <div class="item">
+              <span class="label">Tentang Sekolah</span><span class="url">/profil</span>
+            </div>
+            <div class="item">
+              <span class="label">Visi & Misi</span><span class="url">/visi-misi</span>
+            </div>
+            <div class="item">
+              <span class="label">Denah & Fasilitas</span><span class="url">/denah-fasilitas</span>
+            </div>
+            <div class="item">
+              <span class="label">Program Unggulan</span><span class="url">/program-unggulan</span>
+            </div>
+            <div class="item">
+              <span class="label">Ekstrakurikuler</span><span class="url">/ekstrakurikuler</span>
+            </div>
+            <div class="child-connector">
+              <div class="item">
+                <span class="label">Detail Ekstra</span
+                ><span class="url">/ekstrakurikuler/[slug]</span>
+              </div>
+            </div>
+            <div class="item">
+              <span class="label">Galeri Siswa</span><span class="url">/galery</span>
+            </div>
+            <div class="item">
+              <span class="label">Prestasi Siswa</span><span class="url">/prestasi</span>
+            </div>
+            <div class="item">
+              <span class="label">Kalender Akademik</span
+              ><span class="url">/kalender-akademik</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JURUSAN -->
+        <div class="section">
+          <div class="v-line-sm"></div>
+          <div class="section-header green">🎓 Kompetensi Keahlian</div>
+          <div class="section-items">
+            <div class="item">
+              <span class="label">Rekayasa Perangkat Lunak</span
+              ><span class="url">/jurusan/rpl</span>
+            </div>
+            <div class="item">
+              <span class="label">Teknik Komputer Jaringan</span
+              ><span class="url">/jurusan/tkj</span>
+            </div>
+            <div class="item">
+              <span class="label">Sistem Informasi Jar. Aplikasi</span
+              ><span class="url">/jurusan/sija</span>
+            </div>
+            <div class="item">
+              <span class="label">Teknik Permesinan</span><span class="url">/jurusan/tpm</span>
+            </div>
+            <div class="item">
+              <span class="label">Teknik Alat Berat</span><span class="url">/jurusan/tab</span>
+            </div>
+            <div class="item">
+              <span class="label">Teknik Kendaraan Ringan</span
+              ><span class="url">/jurusan/tkr</span>
+            </div>
+            <div class="item">
+              <span class="label">Otomotif Elektronik</span><span class="url">/jurusan/oto</span>
+            </div>
+            <div class="item">
+              <span class="label">Tek. Instalasi Tenaga Listrik</span
+              ><span class="url">/jurusan/titl</span>
+            </div>
+            <div class="item">
+              <span class="label">Desain Pemodelan Info. Bangunan</span
+              ><span class="url">/jurusan/dpib</span>
+            </div>
+            <div class="item">
+              <span class="label">Konstruksi Jalan Irigasi Jembatan</span
+              ><span class="url">/jurusan/kjij</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HUBIN -->
+        <div class="section">
+          <div class="v-line-sm"></div>
+          <div class="section-header orange">🤝 Hubin & Karir</div>
+          <div class="section-items">
+            <div class="item">
+              <span class="label">Mitra Industri</span><span class="url">/mitra-industri</span>
+            </div>
+            <div class="item">
+              <span class="label">Bursa Kerja Khusus</span><span class="url">/lowongan</span>
+            </div>
+            <div class="child-connector">
+              <div class="item">
+                <span class="label">Detail Lowongan</span><span class="url">/lowongan/[slug]</span>
+              </div>
+            </div>
+            <div class="item">
+              <span class="label">Praktik Kerja Lapangan</span><span class="url">/pkl</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BERITA -->
+        <div class="section">
+          <div class="v-line-sm"></div>
+          <div class="section-header purple">📰 Berita</div>
+          <div class="section-items">
+            <div class="item">
+              <span class="label">Arsip Berita</span><span class="url">/berita</span>
+            </div>
+            <div class="child-connector">
+              <div class="item">
+                <span class="label">Paginasi</span><span class="url">/berita/page/[n]</span>
+              </div>
+            </div>
+            <div class="child-connector">
+              <div class="item">
+                <span class="label">Detail Berita</span><span class="url">/berita/[slug]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SMART TOUR -->
+        <div class="section">
+          <div class="v-line-sm"></div>
+          <div class="section-header red">🌐 Smart Tour 360°</div>
+          <div class="section-items">
+            <div class="item">
+              <span class="label">Tour Index</span><span class="url">/smart-tour/[tourSlug]</span>
+            </div>
+            <div class="child-connector">
+              <div class="item">
+                <span class="label">Room View 360°</span
+                ><span class="url">/smart-tour/.../[roomSlug]</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 12px"></div>
+          <div class="section-header gray">⚙️ Lainnya</div>
+          <div class="section-items">
+            <div class="item">
+              <span class="label">Pencarian Global</span><span class="url">/search</span>
+            </div>
+            <div class="item">
+              <span class="label">Halaman Dinamis CMS</span><span class="url">/[slug]</span>
+            </div>
+            <div class="item">
+              <span class="label">Kebijakan Privasi</span
+              ><span class="url">/kebijakan-privasi</span>
+            </div>
+            <div class="item">
+              <span class="label">Syarat & Ketentuan</span
+              ><span class="url">/syarat-ketentuan</span>
+            </div>
+            <div class="item">
+              <span class="label">Kredit</span><span class="url">/kredit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note">Sitemap Website SMK Negeri 6 Malang — Generated April 2026</p>
+  </body>
+</html>
