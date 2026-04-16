@@ -39,8 +39,14 @@ Anda tidak perlu khawatir data lama akan tertimpa. Sistem menggunakan logika **S
 - Jika bulan yang baru di-scan sudah ada di database, sistem hanya akan meng-update atau menambahkan kegiatan baru di bulan tersebut.
 - Data di bulan lain (misal semester depan) **tidak akan dihapus** meskipun gambar yang baru di-scan hanya berisi satu bulan saja.
 
-:::tip[Tips Akurasi AI]
-- Gunakan gambar dengan resolusi tinggi dan pencahayaan yang jelas.
+:::caution[PENTING: Kualitas Gambar]
+Kualitas gambar sangat mempengaruhi akurasi pembacaan AI:
+- Gunakan gambar dengan **resolusi tinggi** dan pencahayaan yang terang.
+- Pastikan teks pada gambar tidak kabur (blur), miring secara ekstrem, atau terpotong.
+- Gambar yang buram atau berkualitas rendah akan menyebabkan **kegagalan deteksi tanggal** atau teks yang tidak akurat.
+:::
+
+:::tip[Tips Fleksibilitas]
 - Sistem secara cerdas mendukung berbagai variasi ejaan bulan (seperti **Nopember** vs **November** atau **Pebruari** vs **Februari**).
 - Jika ada kesalahan pembacaan, Anda tetap bisa mengedit hasil ekstraksi secara manual di bagian **Data Bulan**.
 :::
