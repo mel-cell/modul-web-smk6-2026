@@ -55,21 +55,18 @@ Klik tombol **"Add Link"** untuk menambahkan hotspot baru.
  - Baik: `Menuju Ruang Kepala Sekolah`
  - Buruk: `Link 01`
 
-2. **Yaw (Horizontal)**: Tentukan arah horizontal.
- - Gunakan preview 360° sebagai panduan visual.
- - Nilai `0` berarti tepat di depan.
- - Nilai `90` berarti di samping kanan.
- - Nilai `180` berarti di belakang.
+### 6. Alat Bantu Posisi Interaktif (Paling Mudah)
 
-3. **Pitch (Vertikal)**: Tentukan ketinggian hotspot.
- - Gunakan `0` untuk sejajar mata.
- - Gunakan `-10` hingga `-30` untuk mengarahkan ke lantai (cocok untuk "pintu" atau "jalan").
+Sekarang Anda tidak perlu lagi menebak-nebak angka Yaw dan Pitch secara manual. Gunakan fitur **"Camera Positioning"** yang baru:
 
-4. **Skala Ikon**: Biarkan di `1` kecuali hotspot perlu lebih besar/kecil.
- - Gunakan `0.5` – `2` sesuai kebutuhan.
+1. **Buka Preview 360°** di dalam tab ruangan.
+2. Geser pandangan kamera hingga tepat mengenai titik yang Anda inginkan (misal: tepat di depan pintu).
+3. **Klik Kanan** pada mouse atau tekan tombol **Enter** di keyboard Anda.
+4. Sistem akan otomatis menyalin koordinat tersebut ke data Yaw dan Pitch hotspot Anda.
+5. Anda akan melihat icon **Foto/Kamera** pada tombol simpan yang menandakan posisi berhasil "dipotret".
 
-### 6. Save Tur
-Setelah semua hotspot diatur, klik **Save** untuk menyimpan.
+### 7. Save Tur
+Setelah posisi terkunci (ikon kamera muncul), klik **Save** untuk menyimpan perubahan secara permanen ke database sekolah.
 
 ## Tips Penempatan Hotspot
 

@@ -27,6 +27,10 @@ Sistem mendukung menu bertingkat (Nested Navigation):
     *   **Internal**: Link ke halaman yang sudah dibuat di CMS. Pilih dari daftar koleksi `Pages`.
     *   **Custom**: Link ke website luar (misal: link ke portal PPDB, E-Learning, atau Jurnal Sekolah). Gunakan URL lengkap (awali dengan `https://`).
 
+### **C. Kontrol Dinamis (Baru)**
+*   **Tombol PPDB**: Sekarang Anda bisa menyalakan/mematikan tombol pendaftaran melalui saklar **"Tampilkan Tombol PPDB?"**. Anda juga bisa mengubah tulisan tombol tersebut (misal: dari "Daftar PPDB" menjadi "Pendaftaran Tutup") secara langsung.
+*   **Saklar Aktif Menu**: Setiap item menu (dan sub-menu) sekarang memiliki checkbox **"Aktifkan Menu Ini?"**. Jika pendaftaran sudah lewat, cukup matikan saklarnya tanpa harus menghapus data link-nya.
+
 ## 2. Arsitektur Kaki Web (Footer)
 
 Footer adalah bagian paling bawah website yang berfungsi sebagai pusat informasi kontak, media sosial, dan link legal/penting lainnya.

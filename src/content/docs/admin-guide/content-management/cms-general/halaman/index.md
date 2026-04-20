@@ -48,7 +48,25 @@ Tab **Hero** menentukan kesan pertama pengunjung.
 Karena Page Builder bersifat visual, selalu gunakan tombol **Preview** di pojok kanan atas sebelum melakukan melakukan **Publish Changes**. Pastikan susunan blok tidak terlalu rapat dan gambar yang digunakan tidak pecah.
 :::
 
-1.  **Susun Blok**: Tambah, hapus, atau tarik (Drag & Drop) untuk mengatur urutan.
-2.  **Save Draft**: Simpan progres susunan Anda.
-3.  **Live Preview**: Cek tampilan di HP dan Desktop.
 4.  **Publish**: Tekan tombol hijau untuk menerapkan perubahan ke website publik.
+
+## 5. Fitur Kontrol Visibilitas (Sembunyikan Konten)
+
+Sekarang Anda memiliki kontrol penuh untuk menyembunyikan konten tanpa harus menghapusnya. Ini sangat berguna jika ada informasi yang hanya dibutuhkan pada musim tertentu (misal: INFO PPDB).
+
+### **A. Menyembunyikan Seluruh Halaman**
+Jika Anda ingin sebuah halaman (misal: Halaman Pendaftaran) tidak bisa diakses sama sekali oleh publik:
+1.  Buka halaman tersebut di Admin.
+2.  Lihat sidebar kanan, cari checkbox **"Sembunyikan Halaman ini dari Publik?"**.
+3.  **Centang** box tersebut, lalu klik **Publish Changes**.
+4.  Pengunjung yang mencoba membuka URL tersebut akan mendapatkan error **404 (Halaman Tidak Ditemukan)**.
+
+### **B. Menyembunyikan Bagian (Blok) Tertentu**
+Jika halaman tetap aktif, tapi Anda ingin menyembunyikan satu bagian di tengahnya saja:
+1.  Klik pada blok yang ingin disembunyikan.
+2.  Cari saklar **"Penyisipan Aktif?"** di pengaturan blok tersebut.
+3.  **Matikan** saklarnya. 
+4.  Maka bagian tersebut akan hilang dari tampilan website, namun datanya tetap tersimpan aman di Admin untuk Anda nyalakan lagi kapan saja.
+
+### **C. Menyembunyikan Link di Navigasi**
+Anda juga bisa menyembunyikan link di **Header (Menu Atas)** atau **Footer (Menu Bawah)** melalui menu **CMS General -> Header/Footer** dengan mematikan checkbox **"Aktifkan Menu Ini?"**.
