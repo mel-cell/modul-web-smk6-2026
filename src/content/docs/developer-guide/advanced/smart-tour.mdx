@@ -1,0 +1,47 @@
+---
+title: "Smart Tour Architecture"
+description: "Penejelasan teknis mengenai sinkronisasi data dan rendering panorama 360° menggunakan PhotoSphereViewer."
+sidebar:
+  order: 5
+---
+
+Sistem Smart Tour di SMK Negeri 6 Malang dirancang agar memiliki pengalaman "What You See Is What You Get" (WYSIWYG) meskipun menggunakan Headless CMS.
+
+## Arsitektur Sinkronisasi Real-time
+
+Karena Viewer 360° merupakan aplikasi yang berat, ia dijalankan di dalam **Iframe** pada halaman Admin Payload. Untuk menghubungkan keduanya tanpa reload, kita menggunakan **Window PostMessage API**.
+
+### Aliran Data (Data Flow)
+
+1.  **Event Capture**: Saat user mengklik tombol "Simpan Batch" di `TourViewer.tsx`, data perubahan (Yaw, Pitch, Link) dikirim ke parent window.
+2.  **Event Listener**: Komponen `CoordinateEditor.tsx` di level Admin CMS mendengarkan pesan tersebut via `window.addEventListener('message', ...)`.
+3.  **Field Injection**: Menggunakan hook `useField` dari `@payloadcms/ui`, kita menyuntikkan (inject) nilai baru langsung ke form state Payload.
+4.  **Robust Matching**: Untuk memastikan data masuk ke ruangan yang benar, kita melakukan pengecekan ganda berbasis **ID** dan **Slug** secara case-insensitive sebelum menjalankan `setValue`.
+
+## PhotoSphereViewer & Next.js
+
+Kita menggunakan library `@photo-sphere-viewer/core` dengan beberapa plugin kustom:
+
+### Penanganan CSS di Production
+Next.js seringkali mengoptimasi CSS hingga urutan pemuatannya berubah-ubah. Hal ini menyebabkan PhotoSphereViewer sering memunculkan error "Stylesheet not loaded".
+
+**Solusi:**
+```typescript
+// Di TourViewer.tsx
+new Viewer({
+  // ...
+  checkStylesheet: false, // Bypass internal CSS check
+})
+```
+Impor CSS global juga dipindahkan ke `globals.css` untuk memastikan ketersediaannya sebelum inisialisasi JS.
+
+## Struktur API
+
+API Kustom tersedia di `/app/(payload)/api/smart-tour/update/route.ts`. API ini digunakan untuk:
+*   Menerima data batch update (beberapa ruangan sekaligus).
+*   Melakukan pembaruan atomik pada field `initialYaw`, `initialPitch`, dan `links`.
+*   Mendukung pencarian dokumen via ID unik untuk efisiensi update database.
+
+## Tips Pengembangan
+*   **Menambah Plugin**: Jika ingin menambah plugin baru (misal: `StereoPlugin`), pastikan untuk menambahkannya di array `plugins` pada inisialisasi Viewer.
+*   **Performance**: Gunakan `lowRes` image sebagai placeholder awal sebelum me-load `highRes` (4K/8K) untuk memastikan LCP tetap hijau.

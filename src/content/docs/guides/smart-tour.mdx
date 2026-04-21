@@ -1,0 +1,69 @@
+---
+title: "Smart Tour & Street View Engine"
+description: "Panduan lengkap penggunaan dan pengembangan fitur Smart Tour 360° SMK Negeri 6 Malang."
+---
+
+import { Card, CardGrid, Steps, Aside } from '@astrojs/starlight/components';
+
+Sistem **Smart Tour** adalah fitur interaktif berbasis WebGL (PhotoSphereViewer) yang memungkinkan pengunjung menjelajahi area sekolah secara virtual dalam format 360°.
+
+---
+
+## 👨‍💼 Panduan Admin
+
+### 1. Persiapan Media
+Sebelum membuat tour, pastikan foto 360° sudah diupload ke koleksi **Tour Media**.
+*   **Format**: Equirectangular JPG/WebP.
+*   **Resolusi**: Minimal 4K (4096x2048) untuk kejernihan optimal.
+*   **Penamaan**: Gunakan nama yang jelas (misal: "Gerbang Depan") karena ini akan menjadi label default.
+
+### 2. Membangun Alur Tour
+Buka koleksi **Smart Tour** dan ikuti langkah berikut:
+<Steps>
+1. Buat dokumen baru dan beri judul (misal: "V1 - Tour Utama").
+2. Di tab **Materi (Rooms)**, tambahkan ruangan yang sudah diupload medianya.
+3. Klik tombol **"BUKA VISUAL EDITOR"** di salah satu ruangan.
+4. **Atur Pandangan Awal**: Geser kamera ke arah yang diinginkan, lalu klik **"Ambil View Saat Ini"** di sidebar kanan.
+5. **Tambah Hotspot**: Klik tab "Hotspots" di sidebar editor, klik titik di panorama, lalu pilih ruangan tujuannya.
+6. Klik **Simpan Batch** untuk mengirim semua perubahan kembali ke CMS.
+</Steps>
+
+<Aside type="tip">
+**Auto-Labeling**: Jika kamu mengosongkan kolom "Label Hotspot" saat memilih ruangan tujuan di CMS, sistem akan otomatis mengisi label tersebut sesuai nama ruangan tujuan.
+</Aside>
+
+---
+
+## 💻 Panduan Developer
+
+### Arsitektur Sistem
+Smart Tour menggunakan pola **Iframe Communication** untuk menjembatani Viewer (Frontend) dan CMS (Admin Panel).
+
+*   **Viewer Component**: `src/components/SmartTour/TourViewer.tsx`
+*   **Admin Bridge**: `src/collections/SmartTour/components/CoordinateEditor.tsx`
+*   **API Endpoint**: `/api/smart-tour/update`
+
+### Aliran Sinkronisasi (Real-time Sync)
+Data tidak disimpan satu-per-satu, melainkan dalam bentuk state temporer di editor sebelum dikirim ke database:
+1. User mengubah posisi di **Iframe Viewer**.
+2. Viewer mengirim data via `window.parent.postMessage`.
+3. **CoordinateEditor** (di level CMS) menangkap pesan tersebut.
+4. Fungsi `setValue` dari hook `useField` Payload dipicu untuk mengupdate form secara visual.
+
+### Skalabilitas
+Jika ingin menambah tipe hotspot baru (misal: Hotspot Video atau Hotspot Info):
+1. Tambahkan `blocks` baru di field `links` pada `SmartTour.ts`.
+2. Update fungsi `applyMarkers` di `TourViewer.tsx` untuk menangani render tipe marker baru tersebut.
+3. Pastikan penanganan event klik sudah terdaftar di `handleSelectMarker`.
+
+---
+
+## 🗺️ Integrasi Map Block
+Untuk menampilkan "pintu masuk" Street View di landing page:
+1. Tambahkan blok **Map** di Page Editor.
+2. Di bagian **Integrated Smart Tour**, pilih koleksi tour yang diinginkan.
+3. Aktifkan **Enable Tour Navigation** jika ingin user bisa langsung menjelajah dari map tersebut (via link otomatis ke `/smart-tour/[slug]`).
+
+<Aside type="caution">
+**Production Note**: Di mode Docker/Production, pastikan library `PhotoSphereViewer` diinisialisasi dengan `checkStylesheet: false` untuk menghindari error false-positive loading CSS oleh Next.js.
+</Aside>

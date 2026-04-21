@@ -55,18 +55,19 @@ Klik tombol **"Add Link"** untuk menambahkan hotspot baru.
  - Baik: `Menuju Ruang Kepala Sekolah`
  - Buruk: `Link 01`
 
-### 6. Alat Bantu Posisi Interaktif (Paling Mudah)
+### 6. Visual Editor (Metode Paling Canggih)
 
-Sekarang Anda tidak perlu lagi menebak-nebak angka Yaw dan Pitch secara manual. Gunakan fitur **"Camera Positioning"** yang baru:
+Kini Anda memiliki alat bantu visual yang sangat memudahkan. Tidak perlu lagi menebak angka Koordinat:
 
-1. **Buka Preview 360°** di dalam tab ruangan.
-2. Geser pandangan kamera hingga tepat mengenai titik yang Anda inginkan (misal: tepat di depan pintu).
-3. **Klik Kanan** pada mouse atau tekan tombol **Enter** di keyboard Anda.
-4. Sistem akan otomatis menyalin koordinat tersebut ke data Yaw dan Pitch hotspot Anda.
-5. Anda akan melihat icon **Foto/Kamera** pada tombol simpan yang menandakan posisi berhasil "dipotret".
+1. **Buka Visual Editor**: Klik tombol biru **"BUKA VISUAL EDITOR"** di bagian bawah setiap pengaturan ruangan.
+2. **Atur Posisi**: Geser panorama Street View hingga menemukan titik yang pas.
+3. **Pilih Mode**:
+   - **Mode Pindah Hotspot**: Di sidebar kanan editor, klik icon "Move" untuk menggeser hotspot yang sudah ada secara visual.
+   - **Set View Awal**: Geser kamera ke arah standar yang ingin dilihat pengunjung pertama kali, lalu klik **"Ambil View Saat Ini"**.
+4. **Simpan Otomatis**: Klik **"Simpan Batch"** di editor. Data akan langsung terkirim kembali ke CMS tanpa perlu copy-paste manual.
 
-### 7. Save Tur
-Setelah posisi terkunci (ikon kamera muncul), klik **Save** untuk menyimpan perubahan secara permanen ke database sekolah.
+### 7. Navigasi Cepat (Room Navigator)
+Di sisi kanan Viewer Street View, terdapat icon **Peta/Map**. Klik icon tersebut untuk memunculkan daftar semua ruangan yang tersedia dalam tour. Ini memudahkan Anda (dan pengunjung) untuk "teleportasi" antar area tanpa harus mencari hotspot di lantai.
 
 ## Tips Penempatan Hotspot
 
