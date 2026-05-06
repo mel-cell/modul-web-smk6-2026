@@ -13,6 +13,7 @@ Bagian ini adalah tempat bagi Admin Utama untuk mengatur struktur dasar website 
 2.  **Kategori**: Mengelola label untuk Berita dan Dokumen.
 3.  **Pengguna**: Mengelola siapa saja yang boleh login ke dashboard ini.
 4.  **Pesan Masuk**: Membaca kiriman dari formulir "Hubungi Kami".
+5.  **Manajemen Formulir**: Membuat dan mengelola formulir dinamis dengan fitur Live Preview.
 
 :::danger[Hanya untuk Admin Ahli]
 Berhati-hatilah saat mengubah data di menu **Halaman** dan **Pengguna** karena kesalahan kecil bisa berakibat pada tampilan website yang berantakan atau akses yang terkunci.

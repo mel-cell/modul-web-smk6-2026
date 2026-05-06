@@ -46,6 +46,14 @@ Setiap **ruangan** di dalam tur terdiri dari:
 - **Foto 360° Panorama**: Gambar utama yang akan ditampilkan dalam viewer.
 - **Penghubung / Hotspot**: Titik-titik klik yang menghubungkan ke ruangan lain.
 
+## Fitur Unggulan Admin
+
+### Admin Sidebar (Navigasi Cepat)
+Saat mengedit tur di dalam dashboard, Anda akan menemukan **Sidebar Navigasi** di sisi kiri layar pratinjau. Fitur ini memungkinkan Anda untuk:
+- Berpindah antar ruangan dengan satu klik tanpa harus menutup editor.
+- Memantau hubungan antar ruangan secara visual.
+- Mempercepat proses pengecekan alur tur yang panjang.
+
 ## Langkah Selanjutnya
 
 Silakan lanjut ke panduan berikut:
