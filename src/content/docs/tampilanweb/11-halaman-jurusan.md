@@ -1,6 +1,6 @@
 ---
 title: Halaman Detail Jurusan
-description: Tampilan halaman detail jurusan (contoh: RPL)
+description: "Tampilan halaman detail jurusan (contoh: RPL)"
 ---
 
 # Halaman Detail Jurusan
