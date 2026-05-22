@@ -65,21 +65,8 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Part 4: Desktop App',
-          items: [
-            {
-              label: 'Introduction',
-              autogenerate: { directory: 'desktop-app/introduction' },
-            },
-            {
-              label: 'User Guide',
-              autogenerate: { directory: 'desktop-app/user-guide' },
-            },
-            {
-              label: 'Development',
-              autogenerate: { directory: 'desktop-app/development' },
-            },
-          ],
+          label: 'Part 4: Tampilan Website',
+          autogenerate: { directory: 'tampilanweb' },
         },
       ],
     }),
